@@ -4,6 +4,7 @@
  */
 package com.QLS.ui;
 
+
 /**
  *
  * @author ACER
@@ -37,7 +38,7 @@ public class frmNhanVien extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        lb_doimk = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -116,14 +117,14 @@ public class frmNhanVien extends javax.swing.JFrame {
         jLabel9.setText("HÓA ĐƠN CHI TIẾT");
         jLabel9.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(255, 255, 255)));
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("ĐỔI MẶT KHẨU");
-        jLabel4.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(255, 255, 255)));
-        jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
+        lb_doimk.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
+        lb_doimk.setForeground(new java.awt.Color(255, 255, 255));
+        lb_doimk.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lb_doimk.setText("ĐỔI MẶT KHẨU");
+        lb_doimk.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(255, 255, 255)));
+        lb_doimk.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel4MouseClicked(evt);
+                lb_doimkMouseClicked(evt);
             }
         });
 
@@ -137,7 +138,7 @@ public class frmNhanVien extends javax.swing.JFrame {
             .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(lb_doimk, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 252, Short.MAX_VALUE))
         );
@@ -146,7 +147,7 @@ public class frmNhanVien extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lb_doimk, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(70, 70, 70)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -195,12 +196,11 @@ public class frmNhanVien extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
-        // TODO add your handling code here:
-        frmDoiMatKhau doimk = new frmDoiMatKhau();
-                doimk.setVisible(true);
+    private void lb_doimkMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_doimkMouseClicked
+      frmDoiMatKhau doimk = new frmDoiMatKhau();
+                doimk.set
                 setVisible(false);
-    }//GEN-LAST:event_jLabel4MouseClicked
+    }//GEN-LAST:event_lb_doimkMouseClicked
 
     /**
      * @param args the command line arguments
@@ -244,7 +244,6 @@ public class frmNhanVien extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -253,5 +252,6 @@ public class frmNhanVien extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JLabel lb_doimk;
     // End of variables declaration//GEN-END:variables
 }
