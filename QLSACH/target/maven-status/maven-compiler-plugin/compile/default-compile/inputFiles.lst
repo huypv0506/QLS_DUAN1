@@ -1,20 +1,21 @@
-D:\New Folder\QLSACH\src\main\java\com\QLS\entity\Sach.java
-D:\New Folder\QLSACH\src\main\java\com\QLS\DAO\HoaDonDao.java
-D:\New Folder\QLSACH\src\main\java\com\QLS\DAO\QLSDao.java
-D:\New Folder\QLSACH\src\main\java\com\QLS\DAO\HoaDonChiTietDao.java
-D:\New Folder\QLSACH\src\main\java\com\QLS\utils\XJdbc.java
-D:\New Folder\QLSACH\src\main\java\com\QLS\entity\KhachHang.java
-D:\New Folder\QLSACH\src\main\java\com\QLS\entity\LoaiSach.java
-D:\New Folder\QLSACH\src\main\java\com\QLS\entity\NhanVien.java
-D:\New Folder\QLSACH\src\main\java\com\QLS\ui\frmNhanVien.java
-D:\New Folder\QLSACH\src\main\java\com\QLS\DAO\SachDao.java
-D:\New Folder\QLSACH\src\main\java\com\QLS\DAO\LoaiSachDao.java
-D:\New Folder\QLSACH\src\main\java\com\QLS\DAO\NhanVienDao.java
-D:\New Folder\QLSACH\src\main\java\com\QLS\ui\frmDangNhap.java
-D:\New Folder\QLSACH\src\main\java\com\QLS\entity\HoaDonChiTiet.java
-D:\New Folder\QLSACH\src\main\java\com\QLS\ui\ChaoJDialog.java
-D:\New Folder\QLSACH\src\main\java\com\QLS\ui\frmDoiMatKhau.java
-D:\New Folder\QLSACH\src\main\java\com\QLS\DAO\KhachHangDao.java
-D:\New Folder\QLSACH\src\main\java\com\QLS\entity\HoaDon.java
-D:\New Folder\QLSACH\src\main\java\com\QLS\ui\frmQuenMatKhau.java
-D:\New Folder\QLSACH\src\main\java\com\QLS\ui\Main.java
+D:\QLS_DUAN1\QLSACH\src\main\java\com\QLS\entity\NhanVien.java
+D:\QLS_DUAN1\QLSACH\src\main\java\com\QLS\DAO\LoaiSachDao.java
+D:\QLS_DUAN1\QLSACH\src\main\java\com\QLS\entity\LoaiSach.java
+D:\QLS_DUAN1\QLSACH\src\main\java\com\QLS\DAO\KhachHangDao.java
+D:\QLS_DUAN1\QLSACH\src\main\java\com\QLS\DAO\HoaDonDao.java
+D:\QLS_DUAN1\QLSACH\src\main\java\com\QLS\DAO\SachDao.java
+D:\QLS_DUAN1\QLSACH\src\main\java\com\QLS\ui\frmQuenMatKhau.java
+D:\QLS_DUAN1\QLSACH\src\main\java\com\QLS\DAO\HoaDonChiTietDao.java
+D:\QLS_DUAN1\QLSACH\src\main\java\com\QLS\DAO\QLSDao.java
+D:\QLS_DUAN1\QLSACH\src\main\java\com\QLS\entity\HoaDonChiTiet.java
+D:\QLS_DUAN1\QLSACH\src\main\java\com\QLS\ui\Main.java
+D:\QLS_DUAN1\QLSACH\src\main\java\com\QLS\ui\frmNhanVien.java
+D:\QLS_DUAN1\QLSACH\src\main\java\com\QLS\utils\Auth.java
+D:\QLS_DUAN1\QLSACH\src\main\java\com\QLS\entity\KhachHang.java
+D:\QLS_DUAN1\QLSACH\src\main\java\com\QLS\utils\XJdbc.java
+D:\QLS_DUAN1\QLSACH\src\main\java\com\QLS\ui\frmDoiMatKhau.java
+D:\QLS_DUAN1\QLSACH\src\main\java\com\QLS\entity\Sach.java
+D:\QLS_DUAN1\QLSACH\src\main\java\com\QLS\DAO\NhanVienDao.java
+D:\QLS_DUAN1\QLSACH\src\main\java\com\QLS\ui\ChaoJDialog.java
+D:\QLS_DUAN1\QLSACH\src\main\java\com\QLS\ui\frmDangNhap.java
+D:\QLS_DUAN1\QLSACH\src\main\java\com\QLS\entity\HoaDon.java

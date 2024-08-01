@@ -6,6 +6,7 @@ package com.QLS.ui;
 
 import com.QLS.DAO.NhanVienDao;
 import com.QLS.entity.NhanVien;
+import com.QLS.utils.Auth;
 import javax.swing.JOptionPane;
 
 /**
@@ -162,27 +163,31 @@ public class frmDangNhap extends javax.swing.JFrame {
 
     private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
         // TODO add your handling code here:
-        NhanVienDao nv = new NhanVienDao();
-
+        this.dangnhap();
+    }//GEN-LAST:event_jLabel5MouseClicked
+   NhanVienDao nv = new NhanVienDao();
+    void dangnhap(){
+        
+        
         String name = txt_taiKhoan.getText();
         String password = txt_password.getText();
-        NhanVien nhanviewn = nv.selectById(name);
+        NhanVien nhanvien = nv.selectById(name);
         if (name.equals("")) {
             JOptionPane.showMessageDialog(this, "Tên đăng nhập không được bỏ trống");
         } else if (password.equals("")) {
             JOptionPane.showMessageDialog(this, "Mặt khẩu không được bỏ trống");
        }else{
-            if(!name.endsWith(nhanviewn.getMANV()) || !password.equals(nhanviewn.getMATKHAU())){
+            if(!name.endsWith(nhanvien.getMANV()) || !password.equals(nhanvien.getMATKHAU())){
                   JOptionPane.showMessageDialog(this, "Mặt khẩu tài khoản không chính xác");
             }else{
                  JOptionPane.showMessageDialog(this, "Đăng nhập thành công");
+                 Auth.user = nhanvien;
                  Main ui = new Main();
                 ui.setVisible(true);
                 setVisible(false);
             }
         }
-    }//GEN-LAST:event_jLabel5MouseClicked
-
+    }
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
         // TODO add your handling code here:
         frmQuenMatKhau mk = new frmQuenMatKhau();

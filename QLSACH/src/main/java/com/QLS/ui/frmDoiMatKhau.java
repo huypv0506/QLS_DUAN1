@@ -4,6 +4,11 @@
  */
 package com.QLS.ui;
 
+import com.QLS.DAO.NhanVienDao;
+import com.QLS.entity.NhanVien;
+import com.QLS.utils.Auth;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author ACER
@@ -28,10 +33,10 @@ public class frmDoiMatKhau extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
+        txt_taikhoan = new javax.swing.JTextField();
+        txt_mkcu = new javax.swing.JTextField();
+        txt_mknew = new javax.swing.JTextField();
+        txt_mkxacnhan = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -52,9 +57,9 @@ public class frmDoiMatKhau extends javax.swing.JFrame {
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("ĐỔI MẬT KHẨU");
 
-        jTextField4.addActionListener(new java.awt.event.ActionListener() {
+        txt_mkxacnhan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField4ActionPerformed(evt);
+                txt_mkxacnhanActionPerformed(evt);
             }
         });
 
@@ -72,6 +77,11 @@ public class frmDoiMatKhau extends javax.swing.JFrame {
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("XÁC NHẬN ĐỔI");
+        jLabel6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel6MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -123,19 +133,19 @@ public class frmDoiMatKhau extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txt_taikhoan, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel1))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txt_mkcu, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel3)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txt_mknew, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel4))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txt_mkxacnhan, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel5)))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(124, 124, 124)
@@ -156,16 +166,16 @@ public class frmDoiMatKhau extends javax.swing.JFrame {
                     .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txt_mkcu, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt_taikhoan, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(jLabel5))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txt_mknew, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt_mkxacnhan, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
@@ -187,9 +197,9 @@ public class frmDoiMatKhau extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+    private void txt_mkxacnhanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_mkxacnhanActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4ActionPerformed
+    }//GEN-LAST:event_txt_mkxacnhanActionPerformed
 
     private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
         // TODO add your handling code here:
@@ -198,6 +208,33 @@ public class frmDoiMatKhau extends javax.swing.JFrame {
                 setVisible(false);
     }//GEN-LAST:event_jLabel7MouseClicked
 
+    private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
+        // TODO add your handling code here:
+        this.xacnhan();
+    }//GEN-LAST:event_jLabel6MouseClicked
+    NhanVienDao nv = new NhanVienDao();
+    void xacnhan(){
+        String taikhoan = txt_taikhoan.getText();
+        String mkcu = txt_mkcu.getText();
+        String mknew = txt_mknew.getText();
+        String mkxacnhan = txt_mkxacnhan.getText();
+        
+        if(!taikhoan.equalsIgnoreCase(Auth.user.getMANV()) && !taikhoan.equalsIgnoreCase(Auth.user.getMANV())){
+            JOptionPane.showMessageDialog(this, "Tài khoản không tồn tại", "THÔNG BÁO!", 0);
+            return;
+        } else if(!mknew.equals(mkxacnhan)){
+            JOptionPane.showMessageDialog(this, "Nhập lại mật khẩu không khớp", "THÔNG BÁO!", 0);
+            return;
+        } else if(!mkcu.equals(Auth.user.getMATKHAU())){
+            JOptionPane.showMessageDialog(this, "Mật khẩu cũ sai", "THÔNG BÁO!", 0);
+            return;
+        } else {
+            Auth.user.setMATKHAU(mknew);
+            nv.updatpassword(Auth.user);
+            JOptionPane.showMessageDialog(this, "Thay đổi thành công", "THÔNG BÁO!", 1);
+            return;
+        }
+    }
     /**
      * @param args the command line arguments
      */
@@ -244,9 +281,9 @@ public class frmDoiMatKhau extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField txt_mkcu;
+    private javax.swing.JTextField txt_mknew;
+    private javax.swing.JTextField txt_mkxacnhan;
+    private javax.swing.JTextField txt_taikhoan;
     // End of variables declaration//GEN-END:variables
 }

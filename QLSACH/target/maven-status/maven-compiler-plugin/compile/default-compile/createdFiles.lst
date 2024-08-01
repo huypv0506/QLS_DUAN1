@@ -2,8 +2,10 @@ com\QLS\DAO\SachDao.class
 com\QLS\entity\NhanVien.class
 com\QLS\DAO\LoaiSachDao.class
 com\QLS\ui\frmDangNhap.class
+com\QLS\utils\Auth.class
 com\QLS\DAO\NhanVienDao.class
 com\QLS\DAO\QLSDao.class
+com\QLS\ui\frmDoiMatKhau$4.class
 com\QLS\ui\frmDangNhap$1.class
 com\QLS\ui\ChaoJDialog.class
 com\QLS\ui\frmQuenMatKhau$1.class
