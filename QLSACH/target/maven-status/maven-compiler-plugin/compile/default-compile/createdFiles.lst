@@ -32,6 +32,8 @@ com\QLS\ui\frmDoiMatKhau$3.class
 com\QLS\entity\Sach.class
 com\QLS\DAO\HoaDonDao.class
 com\QLS\ui\frmDangNhap$2.class
+com\QLS\ui\Main$4.class
+com\QLS\ui\frmSach$4.class
 com\QLS\ui\frmNhanVien.class
 com\QLS\ui\frmNhanVien$4.class
 com\QLS\entity\KhachHang.class
