@@ -516,6 +516,20 @@ public class frmNhanVien extends javax.swing.JFrame implements MouseListener {
         }
         txtemail.setText(nv.getEMAIL());
     }
+    void update(){
+//         NhanVien nv = nvDao.update(entity);
+         getform();
+        
+    }
+    NhanVien getform(){
+        NhanVien nv = new NhanVien();
+        nv.setMANV(txtMNV.getText());
+        nv.setHOTEN(txtname.getText());
+        nv.setMATKHAU(txtpassword.getText());
+        nv.setVAITRO(cbnv.getName()=="Nhân Viên"?0:1);
+        nv.setEMAIL(txtemail.getText());
+        return nv;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
