@@ -23,4 +23,5 @@ public class Auth {
     public static boolean isLogin() {
         return Auth.user != null;
     }
+    
 }

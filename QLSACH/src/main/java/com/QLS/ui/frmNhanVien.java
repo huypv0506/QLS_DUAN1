@@ -6,6 +6,8 @@ package com.QLS.ui;
 
 import com.QLS.DAO.NhanVienDao;
 import com.QLS.entity.NhanVien;
+import com.QLS.utils.Auth;
+import com.QLS.utils.MsgBox;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.List;
@@ -67,12 +69,14 @@ public class frmNhanVien extends javax.swing.JFrame implements MouseListener {
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        btnthem = new javax.swing.JButton();
+        btnsua = new javax.swing.JButton();
+        btnxoa = new javax.swing.JButton();
+        btncapnhat = new javax.swing.JButton();
         cbnv = new javax.swing.JRadioButton();
         cbql = new javax.swing.JRadioButton();
+        jLabel16 = new javax.swing.JLabel();
+        txtmk2 = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -272,21 +276,31 @@ public class frmNhanVien extends javax.swing.JFrame implements MouseListener {
 
         jLabel15.setText("Email:");
 
-        jButton1.setBackground(new java.awt.Color(204, 204, 204));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButton1.setText("Thêm");
+        btnthem.setBackground(new java.awt.Color(204, 204, 204));
+        btnthem.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnthem.setText("Thêm");
 
-        jButton2.setBackground(new java.awt.Color(204, 204, 204));
-        jButton2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButton2.setText("Sửa");
+        btnsua.setBackground(new java.awt.Color(204, 204, 204));
+        btnsua.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnsua.setText("Sửa");
 
-        jButton3.setBackground(new java.awt.Color(204, 204, 204));
-        jButton3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButton3.setText("Xóa");
+        btnxoa.setBackground(new java.awt.Color(204, 204, 204));
+        btnxoa.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnxoa.setText("Xóa");
+        btnxoa.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnxoaMouseClicked(evt);
+            }
+        });
 
-        jButton4.setBackground(new java.awt.Color(204, 204, 204));
-        jButton4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButton4.setText("Cập nhật");
+        btncapnhat.setBackground(new java.awt.Color(204, 204, 204));
+        btncapnhat.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btncapnhat.setText("Cập nhật");
+        btncapnhat.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btncapnhatMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -294,13 +308,13 @@ public class frmNhanVien extends javax.swing.JFrame implements MouseListener {
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addGap(17, 17, 17)
-                .addComponent(jButton1)
+                .addComponent(btnthem)
                 .addGap(27, 27, 27)
-                .addComponent(jButton2)
+                .addComponent(btnsua)
                 .addGap(18, 18, 18)
-                .addComponent(jButton3)
+                .addComponent(btnxoa)
                 .addGap(18, 18, 18)
-                .addComponent(jButton4)
+                .addComponent(btncapnhat)
                 .addContainerGap(14, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
@@ -308,10 +322,10 @@ public class frmNhanVien extends javax.swing.JFrame implements MouseListener {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
                 .addContainerGap(41, Short.MAX_VALUE)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3)
-                    .addComponent(jButton4))
+                    .addComponent(btnthem)
+                    .addComponent(btnsua)
+                    .addComponent(btnxoa)
+                    .addComponent(btncapnhat))
                 .addGap(36, 36, 36))
         );
 
@@ -320,6 +334,8 @@ public class frmNhanVien extends javax.swing.JFrame implements MouseListener {
 
         buttonGroup1.add(cbql);
         cbql.setText("Quản Lý");
+
+        jLabel16.setText("Mật khẩu xác nhận:");
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -349,10 +365,17 @@ public class frmNhanVien extends javax.swing.JFrame implements MouseListener {
                         .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addContainerGap())))
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(95, 95, 95)
-                .addComponent(cbnv, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(cbql, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(79, 79, 79)
+                        .addComponent(cbnv, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(28, 28, 28)
+                        .addComponent(cbql, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(102, 102, 102)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtmk2, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel16))))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
@@ -376,13 +399,16 @@ public class frmNhanVien extends javax.swing.JFrame implements MouseListener {
                     .addComponent(txtemail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel14)
-                .addGap(18, 18, 18)
+                .addGap(7, 7, 7)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cbnv)
-                    .addComponent(cbql))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
-                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(56, 56, 56))
+                    .addComponent(cbql)
+                    .addComponent(cbnv))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
+                .addComponent(jLabel16)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtmk2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -451,8 +477,18 @@ public class frmNhanVien extends javax.swing.JFrame implements MouseListener {
         int i = tbl_nhavien.getSelectedRow();
         this.showtb(i);
     }//GEN-LAST:event_tbl_nhavienMouseClicked
-    NhanVienDao nvDao = new NhanVienDao();
 
+    private void btncapnhatMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btncapnhatMouseClicked
+        // TODO add your handling code here:
+        this.update();
+    }//GEN-LAST:event_btncapnhatMouseClicked
+
+    private void btnxoaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnxoaMouseClicked
+        // TODO add your handling code here:
+        this.delete();
+    }//GEN-LAST:event_btnxoaMouseClicked
+    NhanVienDao nvDao = new NhanVienDao();
+    int row = -1;
     /**
      * @param args the command line arguments
      */
@@ -518,8 +554,50 @@ public class frmNhanVien extends javax.swing.JFrame implements MouseListener {
     }
     void update(){
 //         NhanVien nv = nvDao.update(entity);
-         getform();
+         NhanVien nv = this.getform();
+         String mk2 = new String(txtmk2.getPassword());
+         if(!mk2.equals(nv.getMATKHAU())){
+             MsgBox.alert(this, "Mật khẩu không đúng!");
+         }else{
+            try{
+             nvDao.insert(nv);
+             this.filltable();
+              MsgBox.alert(this, "Cập nhật thành công!");
+         }catch(Exception e){
+             MsgBox.alert(this, "Cập nhật thất bại!");
+         } 
+         }
+         
         
+    }
+    void delete(){
+            String manv = txtMNV.getText();
+            if(manv.equals(Auth.user.getMANV())){
+                MsgBox.alert(this, "Bạn không được xóa chính bạn!");
+            }
+            else if(MsgBox.confirm(this, "Bạn thực sự muốn xóa nhân viên này?")){
+                try {
+                    nvDao.delete(manv);
+                    this.filltable();
+                    this.clearForm();
+                    MsgBox.alert(this, "Xóa thành công!");
+                } 
+                catch (Exception e) {
+                    MsgBox.alert(this, "Xóa thất bại!");
+                }
+            
+        }
+    }
+    void setform( NhanVien nv){
+       txtMNV.setText(nv.getMANV());
+       txtname.setText(nv.getHOTEN());
+       txtpassword.setText(nv.getMATKHAU());
+       if (nv.getVAITRO() == 0) {
+            cbnv.setSelected(true);
+        } else {
+            cbql.setSelected(true);
+        }
+       txtemail.setText(nv.getEMAIL());
     }
     NhanVien getform(){
         NhanVien nv = new NhanVien();
@@ -530,15 +608,37 @@ public class frmNhanVien extends javax.swing.JFrame implements MouseListener {
         nv.setEMAIL(txtemail.getText());
         return nv;
     }
+    void clearForm(){
+        NhanVien nv = new NhanVien();
+        this.setform(nv);
+        this.row = -1;
+        this.updateStatus();
+    }
+    void updateStatus(){
+        boolean edit = (this.row >= 0);
+        boolean first = (this.row == 0);
+        boolean last = (this.row == tbl_nhavien.getRowCount() - 1);
+        // Trạng thái form
+        txtMNV.setEditable(!edit);
+        btnthem.setEnabled(!edit);
+        btnsua.setEnabled(edit);
+        btnxoa.setEnabled(edit);
+        
+        // Trạng thái điều hướng
+//        btnFirst.setEnabled(edit && !first);
+//        btnPrev.setEnabled(edit && !first);
+//        btnNext.setEnabled(edit && !last);
+//        btnLast.setEnabled(edit && !last);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btncapnhat;
+    private javax.swing.JButton btnsua;
+    private javax.swing.JButton btnthem;
+    private javax.swing.JButton btnxoa;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JRadioButton cbnv;
     private javax.swing.JRadioButton cbql;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -546,6 +646,7 @@ public class frmNhanVien extends javax.swing.JFrame implements MouseListener {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -565,6 +666,7 @@ public class frmNhanVien extends javax.swing.JFrame implements MouseListener {
     private javax.swing.JTable tbl_nhavien;
     private javax.swing.JTextField txtMNV;
     private javax.swing.JTextField txtemail;
+    private javax.swing.JPasswordField txtmk2;
     private javax.swing.JTextField txtname;
     private javax.swing.JTextField txtpassword;
     // End of variables declaration//GEN-END:variables

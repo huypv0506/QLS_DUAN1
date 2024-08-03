@@ -34,11 +34,12 @@ public class NhanVienDao extends QLSDao<NhanVien, String>{
     public void update(NhanVien entity) {
         String sql="UPDATE NHANVIEN SET HOTEN=?, MATKHAU=?, VAITRO=?, EMAIL=? WHERE MANV=?";
         XJdbc.update(sql,
+                entity.getMANV(),
                 entity.getHOTEN(),
                 entity.getMATKHAU(),
                 entity.getVAITRO(),
-                entity.getEMAIL(),
-                entity.getMANV()
+                entity.getEMAIL()
+                
         );
     }
     public void updatpassword( NhanVien entity){
