@@ -126,7 +126,7 @@ public class Main extends javax.swing.JFrame {
         jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel9.setText("HÓA ĐƠN CHI TIẾT");
+        jLabel9.setText("THANH TOÁN");
         jLabel9.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(255, 255, 255)));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
