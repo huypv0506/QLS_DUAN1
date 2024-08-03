@@ -11,7 +11,7 @@ public class XJdbc {
 //    private static String dburl="jdbc:sqlserver://localhost;database=Polypro";
     private static String dburl = "jdbc:sqlserver://localhost:1433;encrypt=false;trustServerCertificate=true;databaseName=DUAN1";
     private static String username="sa";
-    private static String password="vanhuy@113";
+    private static String password="123456";
     
     /*
      * Nạp driver
