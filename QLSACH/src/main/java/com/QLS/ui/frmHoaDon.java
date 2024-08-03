@@ -4,17 +4,23 @@
  */
 package com.QLS.ui;
 
+import com.QLS.DAO.HoaDonDao;
+import com.QLS.entity.HoaDon;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author ACER
  */
 public class frmHoaDon extends javax.swing.JFrame {
-
+ private List<HoaDon> listhd;
     /**
      * Creates new form Main
      */
     public frmHoaDon() {
         initComponents();
+        filltable();
     }
 
     /**
@@ -39,6 +45,8 @@ public class frmHoaDon extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         lb_doimk = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tbl_hoadon = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -186,17 +194,36 @@ public class frmHoaDon extends javax.swing.JFrame {
                     .addContainerGap(323, Short.MAX_VALUE)))
         );
 
+        tbl_hoadon.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(tbl_hoadon);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 734, Short.MAX_VALUE))
+                .addGap(34, 34, 34)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 248, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(48, 48, 48)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -286,6 +313,19 @@ public class frmHoaDon extends javax.swing.JFrame {
             }
         });
     }
+    HoaDonDao hdDao = new HoaDonDao();
+     public void filltable() {
+        listhd = hdDao.selectAll();
+        String[] headers = new String[]{"Mã HD", "Mã KH", "Tổng Tiền", "Ngày Lập hóa đơn"};
+        DefaultTableModel tbl_model = new DefaultTableModel(headers, 0);
+
+        for (HoaDon hd : listhd) {
+            Object[] obj = {hd.getMAHD(),hd.getMAKH(), hd.getTONGTIEN(), hd.getNGAYLAPHOADON()};
+            tbl_model.addRow(obj);
+        }
+        tbl_hoadon.setModel(tbl_model);
+
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
@@ -300,6 +340,8 @@ public class frmHoaDon extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lb_doimk;
+    private javax.swing.JTable tbl_hoadon;
     // End of variables declaration//GEN-END:variables
 }

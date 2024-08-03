@@ -28,6 +28,7 @@ public class frmNhanVien extends javax.swing.JFrame implements MouseListener {
     public frmNhanVien() {
         initComponents();
         filltable();
+        updateStatus();
 
     }
 
@@ -279,10 +280,25 @@ public class frmNhanVien extends javax.swing.JFrame implements MouseListener {
         btnthem.setBackground(new java.awt.Color(204, 204, 204));
         btnthem.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnthem.setText("Thêm");
+        btnthem.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnthemMouseClicked(evt);
+            }
+        });
+        btnthem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnthemActionPerformed(evt);
+            }
+        });
 
         btnsua.setBackground(new java.awt.Color(204, 204, 204));
         btnsua.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        btnsua.setText("Sửa");
+        btnsua.setText("Mới");
+        btnsua.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnsuaActionPerformed(evt);
+            }
+        });
 
         btnxoa.setBackground(new java.awt.Color(204, 204, 204));
         btnxoa.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -292,6 +308,11 @@ public class frmNhanVien extends javax.swing.JFrame implements MouseListener {
                 btnxoaMouseClicked(evt);
             }
         });
+        btnxoa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnxoaActionPerformed(evt);
+            }
+        });
 
         btncapnhat.setBackground(new java.awt.Color(204, 204, 204));
         btncapnhat.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
@@ -299,6 +320,11 @@ public class frmNhanVien extends javax.swing.JFrame implements MouseListener {
         btncapnhat.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btncapnhatMouseClicked(evt);
+            }
+        });
+        btncapnhat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btncapnhatActionPerformed(evt);
             }
         });
 
@@ -480,13 +506,38 @@ public class frmNhanVien extends javax.swing.JFrame implements MouseListener {
 
     private void btncapnhatMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btncapnhatMouseClicked
         // TODO add your handling code here:
-        this.update();
+//        this.update();
     }//GEN-LAST:event_btncapnhatMouseClicked
 
     private void btnxoaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnxoaMouseClicked
         // TODO add your handling code here:
-        this.delete();
+//        this.delete();
     }//GEN-LAST:event_btnxoaMouseClicked
+
+    private void btnthemMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnthemMouseClicked
+        // TODO add your handling code here:
+//        this.insert();
+    }//GEN-LAST:event_btnthemMouseClicked
+
+    private void btnthemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnthemActionPerformed
+        // TODO add your handling code here:
+        this.insert();
+    }//GEN-LAST:event_btnthemActionPerformed
+
+    private void btncapnhatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncapnhatActionPerformed
+        // TODO add your handling code here:
+        this.update();
+    }//GEN-LAST:event_btncapnhatActionPerformed
+
+    private void btnxoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnxoaActionPerformed
+        // TODO add your handling code here:
+        this.delete();
+    }//GEN-LAST:event_btnxoaActionPerformed
+
+    private void btnsuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsuaActionPerformed
+        // TODO add your handling code here:
+        this.clearForm();
+    }//GEN-LAST:event_btnsuaActionPerformed
     NhanVienDao nvDao = new NhanVienDao();
     int row = -1;
     /**
@@ -588,6 +639,25 @@ public class frmNhanVien extends javax.swing.JFrame implements MouseListener {
             
         }
     }
+    void insert(){
+//         NhanVien nv = nvDao.update(entity);
+         NhanVien nv = this.getform();
+         String mk2 = new String(txtmk2.getPassword());
+         if(!mk2.equals(nv.getMATKHAU())){
+             MsgBox.alert(this, "Mật khẩu không đúng!");
+         }else{
+            try{
+             nvDao.insert(nv);
+             this.filltable();
+             this.clearForm();
+              MsgBox.alert(this, "Cập nhật thành công!");
+         }catch(Exception e){
+             MsgBox.alert(this, "Cập nhật thất bại!");
+         } 
+         }
+         
+        
+    }
     void setform( NhanVien nv){
        txtMNV.setText(nv.getMANV());
        txtname.setText(nv.getHOTEN());
@@ -616,13 +686,13 @@ public class frmNhanVien extends javax.swing.JFrame implements MouseListener {
     }
     void updateStatus(){
         boolean edit = (this.row >= 0);
-        boolean first = (this.row == 0);
-        boolean last = (this.row == tbl_nhavien.getRowCount() - 1);
+//        boolean first = (this.row == 0);
+//        boolean last = (this.row == tbl_nhavien.getRowCount() - 1);
         // Trạng thái form
         txtMNV.setEditable(!edit);
         btnthem.setEnabled(!edit);
-        btnsua.setEnabled(edit);
-        btnxoa.setEnabled(edit);
+        btnsua.setEnabled(!edit);
+        btnxoa.setEnabled(!edit);
         
         // Trạng thái điều hướng
 //        btnFirst.setEnabled(edit && !first);

@@ -1,6 +1,7 @@
 com\QLS\DAO\SachDao.class
 com\QLS\entity\NhanVien.class
 com\QLS\DAO\LoaiSachDao.class
+com\QLS\ui\frmNhanVien$12.class
 com\QLS\utils\Auth.class
 com\QLS\DAO\NhanVienDao.class
 com\QLS\ui\frmLoaiSach$3.class
@@ -23,6 +24,7 @@ com\QLS\ui\Main.class
 com\QLS\ui\frmNhanVien$1.class
 com\QLS\ui\Main$1.class
 com\QLS\utils\XJdbc.class
+com\QLS\ui\frmNhanVien$8.class
 com\QLS\DAO\HoaDonDao.class
 com\QLS\ui\frmDangNhap$2.class
 com\QLS\ui\Main$4.class
@@ -46,6 +48,7 @@ com\QLS\ui\frmLoaiSach$2.class
 com\QLS\ui\ChaoJDialog$2.class
 com\QLS\ui\frmNhanVien$3.class
 com\QLS\ui\frmQuenMatKhau.class
+com\QLS\ui\frmNhanVien$10.class
 com\QLS\ui\frmHoaDon$1.class
 com\QLS\ui\frmDangNhap$3.class
 com\QLS\entity\LoaiSach.class
@@ -64,3 +67,5 @@ com\QLS\ui\ChaoJDialog$1$1.class
 com\QLS\ui\frmSach$1.class
 com\QLS\ui\ChaoJDialog$1.class
 com\QLS\ui\Main$2.class
+com\QLS\ui\frmNhanVien$11.class
+com\QLS\ui\frmNhanVien$9.class
