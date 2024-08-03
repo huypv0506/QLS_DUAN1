@@ -23,8 +23,8 @@ public class Auth {
     public static boolean isLogin() {
         return Auth.user != null;
     }
-    /**
-     * Kiểm tra xem có phải là trưởng phòng hay không
-     */
+//    /**
+//     * Kiểm tra xem có phải là trưởng phòng hay không
+//     */
     
 }

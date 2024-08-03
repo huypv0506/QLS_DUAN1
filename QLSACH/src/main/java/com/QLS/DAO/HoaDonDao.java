@@ -71,7 +71,7 @@ public class HoaDonDao extends QLSDao<HoaDon, String> {
                     hd.setMAHD(rs.getInt("MAHD"));
                     hd.setMAKH(rs.getInt("MAKH"));
                     hd.setTONGTIEN(rs.getFloat("TONGTIEN"));
-                    hd.setNGAYLAPHOADON(rs.getDate("NGAYLAPHOADON"));
+                    hd.setNGAYLAPHOADON(rs.getString("NGAYLAPHOADON"));
                     list.add(hd);
 
                 }

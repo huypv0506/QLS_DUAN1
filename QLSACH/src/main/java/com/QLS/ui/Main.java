@@ -178,7 +178,7 @@ public class Main extends javax.swing.JFrame {
                     .addContainerGap(323, Short.MAX_VALUE)))
         );
 
-        jPanel4.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel4.setBackground(new java.awt.Color(0, 204, 204));
 
         jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         jLabel10.setText("TRANG CHỦ");

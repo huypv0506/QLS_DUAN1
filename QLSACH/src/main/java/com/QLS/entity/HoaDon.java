@@ -4,7 +4,7 @@
  */
 package com.QLS.entity;
 
-import java.sql.Date;
+//import java.sql.String;
 
 /**
  *
@@ -14,12 +14,12 @@ public class HoaDon {
     private int MAHD;
     private int MAKH;
     private float TONGTIEN;
-    private Date NGAYLAPHOADON;
+    private String NGAYLAPHOADON;
 
     public HoaDon() {
     }
 
-    public HoaDon(int MAHD, int MAKH, float TONGTIEN, Date NGAYLAPHOADON) {
+    public HoaDon(int MAHD, int MAKH, float TONGTIEN, String NGAYLAPHOADON) {
         this.MAHD = MAHD;
         this.MAKH = MAKH;
         this.TONGTIEN = TONGTIEN;
@@ -50,11 +50,11 @@ public class HoaDon {
         this.TONGTIEN = TONGTIEN;
     }
 
-    public Date getNGAYLAPHOADON() {
+    public String getNGAYLAPHOADON() {
         return NGAYLAPHOADON;
     }
 
-    public void setNGAYLAPHOADON(Date NGAYLAPHOADON) {
+    public void setNGAYLAPHOADON(String NGAYLAPHOADON) {
         this.NGAYLAPHOADON = NGAYLAPHOADON;
     }
 
