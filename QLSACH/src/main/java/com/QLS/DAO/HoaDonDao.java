@@ -19,7 +19,7 @@ public class HoaDonDao extends QLSDao<HoaDon, String> {
 
     @Override
     public void insert(HoaDon entity) {
-        String sql="INSERT INTO KhoaHoc (MAHD, MAKH, TONGTIEN, NGAYLAPHOADON) VALUES (?, ?, ?, ?,)";
+        String sql="INSERT INTO HOADON (MAHD, MAKH, TONGTIEN, NGAYLAPHOADON) VALUES (?, ?, ?, ?)";
         XJdbc.update(sql, 
                 entity.getMAHD(),
                 entity.getMAKH(),
@@ -42,13 +42,13 @@ public class HoaDonDao extends QLSDao<HoaDon, String> {
 
     @Override
     public void delete(String id) {
-        String sql="DELETE FROM HOADON WHERE MADH=?";
+        String sql="DELETE FROM HOADON WHERE MAHD=?";
         XJdbc.update(sql, id);
     }
 
     @Override
     public HoaDon selectById(String id) {
-        String sql="SELECT * FROM NHANVIEN WHERE MANV=?";
+        String sql="SELECT * FROM HOADON WHERE MAHD=?";
         List<HoaDon> list = this.selectBySql(sql, id);
         return list.size() > 0 ? list.get(0) : null;
     }
