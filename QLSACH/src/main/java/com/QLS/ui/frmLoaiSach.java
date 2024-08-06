@@ -286,7 +286,7 @@ public class frmLoaiSach extends javax.swing.JFrame {
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(lb_doimk, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(61, 61, 61)
+                .addGap(64, 64, 64)
                 .addComponent(jLabel4)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -308,7 +308,7 @@ public class frmLoaiSach extends javax.swing.JFrame {
                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(39, 39, 39)
                 .addComponent(jLabel4)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -341,8 +341,18 @@ public class frmLoaiSach extends javax.swing.JFrame {
         );
 
         btnkhoahoc1.setText("Khoa Học");
+        btnkhoahoc1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnkhoahoc1MouseClicked(evt);
+            }
+        });
 
         btntamly1.setText("Thao Túng Tâm Lý");
+        btntamly1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btntamly1MouseClicked(evt);
+            }
+        });
         btntamly1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btntamly1ActionPerformed(evt);
@@ -354,9 +364,19 @@ public class frmLoaiSach extends javax.swing.JFrame {
         jLabel21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/HuyenAo.jpg"))); // NOI18N
 
         btndoithuong1.setText("Đời Thường");
+        btndoithuong1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btndoithuong1MouseClicked(evt);
+            }
+        });
 
         btnhuyenao1.setText("Huyền Ảo");
         btnhuyenao1.setActionCommand("");
+        btnhuyenao1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnhuyenao1MouseClicked(evt);
+            }
+        });
         btnhuyenao1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnhuyenao1ActionPerformed(evt);
@@ -391,6 +411,11 @@ public class frmLoaiSach extends javax.swing.JFrame {
 
         btnvanhoc1.setText("Văn Học");
         btnvanhoc1.setActionCommand("");
+        btnvanhoc1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnvanhoc1MouseClicked(evt);
+            }
+        });
         btnvanhoc1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnvanhoc1ActionPerformed(evt);
@@ -408,14 +433,34 @@ public class frmLoaiSach extends javax.swing.JFrame {
         jButton16.setBorder(null);
 
         btntoanhoc1.setText("Toán Học");
+        btntoanhoc1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btntoanhoc1MouseClicked(evt);
+            }
+        });
 
         jLabel24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/LichSu.jpg"))); // NOI18N
 
         jLabel25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/quyam (1) (1).jpg"))); // NOI18N
 
         btnlichsu1.setText("Lịch Sử");
+        btnlichsu1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnlichsu1MouseClicked(evt);
+            }
+        });
 
         btnkinhdi1.setText("Kinh Dị");
+        btnkinhdi1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnkinhdi1MouseClicked(evt);
+            }
+        });
+        btnkinhdi1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnkinhdi1ActionPerformed(evt);
+            }
+        });
 
         jLabel26.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/KhoaHoc.jpg"))); // NOI18N
 
@@ -468,8 +513,7 @@ public class frmLoaiSach extends javax.swing.JFrame {
                                         .addGap(137, 137, 137)
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jButton15)
-                                            .addComponent(jButton10))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                            .addComponent(jButton10))))
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addGap(109, 109, 109)
@@ -619,6 +663,74 @@ public class frmLoaiSach extends javax.swing.JFrame {
     private void btnvanhoc1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnvanhoc1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnvanhoc1ActionPerformed
+
+    private void btnkinhdi1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnkinhdi1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnkinhdi1ActionPerformed
+
+    private void btnkinhdi1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnkinhdi1MouseClicked
+        // TODO add your handling code here:
+        Kinhdi kinhdi = new Kinhdi();
+        kinhdi.setVisible(true);
+        this.setVisible(false);
+        this.dispose();
+    }//GEN-LAST:event_btnkinhdi1MouseClicked
+
+    private void btntamly1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btntamly1MouseClicked
+        // TODO add your handling code here:
+        TamLy tamLy = new TamLy();
+        tamLy.setVisible(true);
+        this.setVisible(false);
+        this.dispose();
+    }//GEN-LAST:event_btntamly1MouseClicked
+
+    private void btnhuyenao1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnhuyenao1MouseClicked
+        // TODO add your handling code here:
+        HuyenAo huyenAo = new HuyenAo();
+        huyenAo.setVisible(true);
+        this.setVisible(false);
+        this.dispose();
+    }//GEN-LAST:event_btnhuyenao1MouseClicked
+
+    private void btnvanhoc1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnvanhoc1MouseClicked
+        // TODO add your handling code here:
+        Vanhoc vanhoc = new Vanhoc();
+        vanhoc.setVisible(true);
+        this.setVisible(false);
+        this.dispose();
+    }//GEN-LAST:event_btnvanhoc1MouseClicked
+
+    private void btntoanhoc1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btntoanhoc1MouseClicked
+        // TODO add your handling code here:
+        toanhoc toan = new toanhoc();
+        toan.setVisible(true);
+        this.setVisible(false);
+        this.dispose();
+    }//GEN-LAST:event_btntoanhoc1MouseClicked
+
+    private void btnlichsu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnlichsu1MouseClicked
+        // TODO add your handling code here:
+        LichSu lichSu = new LichSu();
+        lichSu.setVisible(true);
+        this.setVisible(false);
+        this.dispose();
+    }//GEN-LAST:event_btnlichsu1MouseClicked
+
+    private void btnkhoahoc1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnkhoahoc1MouseClicked
+        // TODO add your handling code here:
+        KhoaHoc khoaHoc = new KhoaHoc();
+        khoaHoc.setVisible(true);
+        this.setVisible(false);
+        this.dispose();
+    }//GEN-LAST:event_btnkhoahoc1MouseClicked
+
+    private void btndoithuong1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btndoithuong1MouseClicked
+        // TODO add your handling code here:
+        DoiThuong doiThuong = new DoiThuong();
+        doiThuong.setVisible(true);
+        this.setVisible(false);
+        this.dispose();
+    }//GEN-LAST:event_btndoithuong1MouseClicked
 
     /**
      * @param args the command line arguments
