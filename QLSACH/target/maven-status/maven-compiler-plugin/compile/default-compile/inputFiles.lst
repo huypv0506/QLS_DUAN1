@@ -1,4 +1,6 @@
 D:\Duan1\Duan1QLSach\QLS_DUAN1\QLS_DUAN1\QLSACH\src\main\java\com\QLS\DAO\LoaiSachDao.java
+D:\Duan1\Duan1QLSach\QLS_DUAN1\QLS_DUAN1\QLSACH\src\main\java\com\QLS\ui\LichSu.java
+D:\Duan1\Duan1QLSach\QLS_DUAN1\QLS_DUAN1\QLSACH\src\main\java\com\QLS\ui\DoiThuong.java
 D:\Duan1\Duan1QLSach\QLS_DUAN1\QLS_DUAN1\QLSACH\src\main\java\com\QLS\DAO\HoaDonChiTietDao.java
 D:\Duan1\Duan1QLSach\QLS_DUAN1\QLS_DUAN1\QLSACH\src\main\java\com\QLS\entity\KhachHang.java
 D:\Duan1\Duan1QLSach\QLS_DUAN1\QLS_DUAN1\QLSACH\src\main\java\com\QLS\DAO\NhanVienDao.java
@@ -7,6 +9,7 @@ D:\Duan1\Duan1QLSach\QLS_DUAN1\QLS_DUAN1\QLSACH\src\main\java\com\QLS\entity\Hoa
 D:\Duan1\Duan1QLSach\QLS_DUAN1\QLS_DUAN1\QLSACH\src\main\java\com\QLS\ui\frmQuenMatKhau.java
 D:\Duan1\Duan1QLSach\QLS_DUAN1\QLS_DUAN1\QLSACH\src\main\java\com\QLS\utils\MsgBox.java
 D:\Duan1\Duan1QLSach\QLS_DUAN1\QLS_DUAN1\QLSACH\src\main\java\com\QLS\ui\frmDoiMatKhau.java
+D:\Duan1\Duan1QLSach\QLS_DUAN1\QLS_DUAN1\QLSACH\src\main\java\com\QLS\ui\toanhoc.java
 D:\Duan1\Duan1QLSach\QLS_DUAN1\QLS_DUAN1\QLSACH\src\main\java\com\QLS\ui\frmHoaDon.java
 D:\Duan1\Duan1QLSach\QLS_DUAN1\QLS_DUAN1\QLSACH\src\main\java\com\QLS\entity\Sach.java
 D:\Duan1\Duan1QLSach\QLS_DUAN1\QLS_DUAN1\QLSACH\src\main\java\com\QLS\ui\Main.java
@@ -15,6 +18,8 @@ D:\Duan1\Duan1QLSach\QLS_DUAN1\QLS_DUAN1\QLSACH\src\main\java\com\QLS\utils\XDat
 D:\Duan1\Duan1QLSach\QLS_DUAN1\QLS_DUAN1\QLSACH\src\main\java\com\QLS\ui\frmNhanVien.java
 D:\Duan1\Duan1QLSach\QLS_DUAN1\QLS_DUAN1\QLSACH\src\main\java\com\QLS\utils\XJdbc.java
 D:\Duan1\Duan1QLSach\QLS_DUAN1\QLS_DUAN1\QLSACH\src\main\java\com\QLS\ui\frmLoaiSach.java
+D:\Duan1\Duan1QLSach\QLS_DUAN1\QLS_DUAN1\QLSACH\src\main\java\com\QLS\ui\Vanhoc.java
+D:\Duan1\Duan1QLSach\QLS_DUAN1\QLS_DUAN1\QLSACH\src\main\java\com\QLS\ui\TamLy.java
 D:\Duan1\Duan1QLSach\QLS_DUAN1\QLS_DUAN1\QLSACH\src\main\java\com\QLS\ui\frmDangNhap.java
 D:\Duan1\Duan1QLSach\QLS_DUAN1\QLS_DUAN1\QLSACH\src\main\java\com\QLS\DAO\KhachHangDao.java
 D:\Duan1\Duan1QLSach\QLS_DUAN1\QLS_DUAN1\QLSACH\src\main\java\com\QLS\entity\NhanVien.java
@@ -22,7 +27,10 @@ D:\Duan1\Duan1QLSach\QLS_DUAN1\QLS_DUAN1\QLSACH\src\main\java\com\QLS\ui\frmSach
 D:\Duan1\Duan1QLSach\QLS_DUAN1\QLS_DUAN1\QLSACH\src\main\java\com\QLS\entity\LoaiSach.java
 D:\Duan1\Duan1QLSach\QLS_DUAN1\QLS_DUAN1\QLSACH\src\main\java\com\QLS\ui\ChaoJDialog.java
 D:\Duan1\Duan1QLSach\QLS_DUAN1\QLS_DUAN1\QLSACH\src\main\java\com\QLS\utils\Auth.java
+D:\Duan1\Duan1QLSach\QLS_DUAN1\QLS_DUAN1\QLSACH\src\main\java\com\QLS\ui\HuyenAo.java
 D:\Duan1\Duan1QLSach\QLS_DUAN1\QLS_DUAN1\QLSACH\src\main\java\com\QLS\DAO\QLSDao.java
 D:\Duan1\Duan1QLSach\QLS_DUAN1\QLS_DUAN1\QLSACH\src\main\java\com\QLS\ui\frmThanhToan.java
 D:\Duan1\Duan1QLSach\QLS_DUAN1\QLS_DUAN1\QLSACH\src\main\java\com\QLS\DAO\HoaDonDao.java
+D:\Duan1\Duan1QLSach\QLS_DUAN1\QLS_DUAN1\QLSACH\src\main\java\com\QLS\ui\KhoaHoc.java
+D:\Duan1\Duan1QLSach\QLS_DUAN1\QLS_DUAN1\QLSACH\src\main\java\com\QLS\ui\Kinhdi.java
 D:\Duan1\Duan1QLSach\QLS_DUAN1\QLS_DUAN1\QLSACH\src\main\java\com\QLS\ui\frmKhachHang.java
