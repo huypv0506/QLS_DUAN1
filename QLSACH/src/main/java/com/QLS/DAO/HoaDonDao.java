@@ -6,8 +6,8 @@ package com.QLS.DAO;
 
 import java.util.List;
 import com.QLS.entity.HoaDon;
-import com.QLS.utils.XJdbc;
-import java.sql.ResultSet;
+import   com.QLS.utils.XJdbc;
+import java.sql.ResultSet;                      
 import java.sql.SQLException;
 import java.util.ArrayList;
 

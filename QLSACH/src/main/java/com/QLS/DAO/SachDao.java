@@ -85,7 +85,7 @@ public class SachDao extends QLSDao<Sach, String> {
                    s.setTACGIA(rs.getString("TACGIA"));
                    s.setSOLUONG(rs.getInt("SOLUONG"));
                    s.setGIA(rs.getFloat("GIA"));
-                   s.setNGAYXUATBAN(rs.getInt("NGAYXUATBAN"));
+                   s.setNGAYXUATBAN(rs.getString("NGAYXUATBAN"));
                    s.setMOTA(rs.getString("MOTA"));
                    s.setMANV(rs.getString("MANV"));
                    list.add(s);
