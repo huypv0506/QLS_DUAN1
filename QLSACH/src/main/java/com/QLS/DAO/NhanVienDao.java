@@ -112,5 +112,10 @@ public class NhanVienDao extends QLSDao<NhanVien, String>{
         }
         return list;
     }
+    public void DoiPassword(String email, String passwordNew){
+        String sql = "UPDATE NHANVIEN SET MATKHAU = ? WHERE EMAIL LIKE ?";
+        XJdbc.update(sql, passwordNew, email);
+    }
+
     
 }
