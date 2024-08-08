@@ -98,7 +98,7 @@
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI" size="25" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="QU&#xca;N M&#x1eb6;T KH&#x1ea8;U"/>
+            <Property name="text" type="java.lang.String" value="QU&#xca;N M&#x1eac;T KH&#x1ea8;U"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="txtCode">
@@ -112,7 +112,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel3">
           <Properties>
-            <Property name="text" type="java.lang.String" value="CODE 6 S&#x1ed0;"/>
+            <Property name="text" type="java.lang.String" value="M&#xc3; OTP"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="btn_code">
