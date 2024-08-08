@@ -3,13 +3,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package com.QLS.ui;
-//import com.QLS.DAO.LoaiSachDao;
-//import com.QLS.entity.LoaiSach;
-//import com.QLS.utils.MsgBox;
+import com.QLS.DAO.LoaiSachDao;
+import com.QLS.entity.LoaiSach;
+import com.QLS.utils.MsgBox;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
-//import java.util.List;
-//import javax.swing.table.DefaultTableModel;
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -17,14 +17,14 @@ import java.awt.event.MouseListener;
  */
 public class frmLoaiSach extends javax.swing.JFrame implements MouseListener{
 
-//    private List<LoaiSach> listLoaisach;
+    private List<LoaiSach> listLoaisach;
     /**
      * Creates new form Main
      */
     public frmLoaiSach() {
         initComponents();
-//        filltable();
-//        updateStatus();
+        filltable();
+        updateStatus();
     }
 
     /**
@@ -496,8 +496,8 @@ public class frmLoaiSach extends javax.swing.JFrame implements MouseListener{
 
     private void tbl_LoaiSachMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_LoaiSachMouseClicked
         // TODO add your handling code here:
-//        int i = tbl_LoaiSach.getSelectedRow();
-//        this.showtb(i);
+        int i = tbl_LoaiSach.getSelectedRow();
+        this.showtb(i);
     }//GEN-LAST:event_tbl_LoaiSachMouseClicked
 
     private void btnThemMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnThemMouseClicked
@@ -507,26 +507,26 @@ public class frmLoaiSach extends javax.swing.JFrame implements MouseListener{
 
     private void btnThemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemActionPerformed
         // TODO add your handling code here:
-//        this.insert();
+        this.insert();
     }//GEN-LAST:event_btnThemActionPerformed
 
     private void btnsuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsuaActionPerformed
         // TODO add your handling code here:
-//        this.clearForm();
+        this.clearForm();
     }//GEN-LAST:event_btnsuaActionPerformed
 
     private void btnxoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnxoaActionPerformed
         // TODO add your handling code here:
-//        this.delete();
+        this.delete();
     }//GEN-LAST:event_btnxoaActionPerformed
 
     private void btnnewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnnewActionPerformed
         // TODO add your handling code here:
-//        this.update();
+        this.update();
     }//GEN-LAST:event_btnnewActionPerformed
 
-//    LoaiSachDao lsDao = new LoaiSachDao();
-//    int row = -1;
+    LoaiSachDao lsDao = new LoaiSachDao();
+    int row = -1;
     /**
      * @param args the command line arguments
      */
@@ -578,102 +578,102 @@ public class frmLoaiSach extends javax.swing.JFrame implements MouseListener{
     }
     
     
-//    public void filltable() {
-//        listLoaisach = lsDao.selectAll();
-//        String[] headers = new String[]{"Mã Loại Sách ", "Tên Loại Sách"};
-//        DefaultTableModel tbl_model = new DefaultTableModel(headers, 0);
-//
-//        for (LoaiSach ls : listLoaisach) {
-//            Object[] obj = {ls.getMALOAI(), ls.getTENLOAI()};
-//            tbl_model.addRow(obj);
-//        }
-//        tbl_LoaiSach.setModel(tbl_model);
-//
-//    }
-//
-//    public void showtb(int i) {
-//        LoaiSach ls = listLoaisach.get(i);
-//        txt_masach.setText(String.valueOf(ls.getMALOAI()));
-//        txt_tensach.setText(ls.getTENLOAI());
-//        
-//      
-//    }
-//    void update(){
-////         NhanVien nv = nvDao.update(entity);
-//         LoaiSach ls = this.getform();
-//        
-//            try{
-//             lsDao.update(ls);
-//             this.filltable();
-//              MsgBox.alert(this, "Cập nhật thành công!");
-//         }catch(Exception e){
-//             e.printStackTrace();
-//             MsgBox.alert(this, "Cập nhật thất bại!");
-//         } 
-//         
-//         
-//        
-//    }
-//    void delete(){
-//            String mals = txt_masach.getText();
-//             
-//                try {
-//                    lsDao.delete(mals);
-//                    this.filltable();
-//                    this.clearForm();
-//                    MsgBox.alert(this, "Xóa thành công!");
-//                } 
-//                catch (Exception e) {
-//                    MsgBox.alert(this, "Xóa thất bại!");
-//                }
-//            
-//        
-//    }
-//    void insert(){
-////         NhanVien nv = nvDao.update(entity);
-//         LoaiSach ls = this.getform();
-//         
-//            try{
-//             lsDao.insert(ls);
-//             this.filltable();
-//             this.clearForm();
-//              MsgBox.alert(this, "Cập nhật thành công!");
-//         }catch(Exception e){
-//             MsgBox.alert(this, "Cập nhật thất bại!");
-//         } 
-//         }
-//         
-//        
-//    
-//    void setform( LoaiSach ls){
-//       txt_masach.setText(String.valueOf(ls.getMALOAI()));
-//       txt_tensach.setText(ls.getTENLOAI());
-//       
-//    }
-//    LoaiSach getform(){
-//        LoaiSach ls = new LoaiSach();
-//        ls.setMALOAI(Integer.parseInt(txt_masach.getText()));
-//        ls.setTENLOAI(txt_tensach.getText());
-//        
-//        return ls;
-//    }
-//    void clearForm(){
-//        LoaiSach nv = new LoaiSach();
-//        this.setform(nv);
-//        this.row = -1;
-//        this.updateStatus();
-//    }
-//    void updateStatus(){
-//        boolean edit = (this.row >= 0);
-//
-//        // Trạng thái form
-//        txt_masach.setEditable(!edit);
-//        btnThem.setEnabled(!edit);
-//        btnsua.setEnabled(!edit);
-//        btnxoa.setEnabled(!edit);
-//        
-// 
-//    }
+    public void filltable() {
+        listLoaisach = lsDao.selectAll();
+        String[] headers = new String[]{"Mã Loại Sách ", "Tên Loại Sách"};
+        DefaultTableModel tbl_model = new DefaultTableModel(headers, 0);
+
+        for (LoaiSach ls : listLoaisach) {
+            Object[] obj = {ls.getMALOAI(), ls.getTENLOAI()};
+            tbl_model.addRow(obj);
+        }
+        tbl_LoaiSach.setModel(tbl_model);
+
+    }
+
+    public void showtb(int i) {
+        LoaiSach ls = listLoaisach.get(i);
+        txt_masach.setText(String.valueOf(ls.getMALOAI()));
+        txt_tensach.setText(ls.getTENLOAI());
+        
+      
+    }
+    void update(){
+//         NhanVien nv = nvDao.update(entity);
+         LoaiSach ls = this.getform();
+        
+            try{
+             lsDao.update(ls);
+             this.filltable();
+              MsgBox.alert(this, "Cập nhật thành công!");
+         }catch(Exception e){
+             e.printStackTrace();
+             MsgBox.alert(this, "Cập nhật thất bại!");
+         } 
+         
+         
+        
+    }
+    void delete(){
+            String mals = txt_masach.getText();
+             
+                try {
+                    lsDao.delete(mals);
+                    this.filltable();
+                    this.clearForm();
+                    MsgBox.alert(this, "Xóa thành công!");
+                } 
+                catch (Exception e) {
+                    MsgBox.alert(this, "Xóa thất bại!");
+                }
+            
+        
+    }
+    void insert(){
+//         NhanVien nv = nvDao.update(entity);
+         LoaiSach ls = this.getform();
+         
+            try{
+             lsDao.insert(ls);
+             this.filltable();
+             this.clearForm();
+              MsgBox.alert(this, "Cập nhật thành công!");
+         }catch(Exception e){
+             MsgBox.alert(this, "Cập nhật thất bại!");
+         } 
+         }
+         
+        
+    
+    void setform( LoaiSach ls){
+       txt_masach.setText(String.valueOf(ls.getMALOAI()));
+       txt_tensach.setText(ls.getTENLOAI());
+       
+    }
+    LoaiSach getform(){
+        LoaiSach ls = new LoaiSach();
+        ls.setMALOAI(Integer.parseInt(txt_masach.getText()));
+        ls.setTENLOAI(txt_tensach.getText());
+        
+        return ls;
+    }
+    void clearForm(){
+        LoaiSach nv = new LoaiSach();
+        this.setform(nv);
+        this.row = -1;
+        this.updateStatus();
+    }
+    void updateStatus(){
+        boolean edit = (this.row >= 0);
+
+        // Trạng thái form
+        txt_masach.setEditable(!edit);
+        btnThem.setEnabled(!edit);
+        btnsua.setEnabled(!edit);
+        btnxoa.setEnabled(!edit);
+        
+ 
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnThem;
