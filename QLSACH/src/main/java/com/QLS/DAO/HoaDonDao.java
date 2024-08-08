@@ -6,8 +6,8 @@ package com.QLS.DAO;
 
 import java.util.List;
 import com.QLS.entity.HoaDon;
-import com.QLS.utils.XJdbc;
-import java.sql.ResultSet;
+import   com.QLS.utils.XJdbc;
+import java.sql.ResultSet;                      
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -19,7 +19,7 @@ public class HoaDonDao extends QLSDao<HoaDon, String> {
 
     @Override
     public void insert(HoaDon entity) {
-        String sql="INSERT INTO KhoaHoc (MAHD, MAKH, TONGTIEN, NGAYLAPHOADON) VALUES (?, ?, ?, ?,)";
+        String sql="INSERT INTO HOADON (MAHD, MAKH, TONGTIEN, NGAYLAPHOADON) VALUES (?, ?, ?, ?)";
         XJdbc.update(sql, 
                 entity.getMAHD(),
                 entity.getMAKH(),
@@ -42,13 +42,13 @@ public class HoaDonDao extends QLSDao<HoaDon, String> {
 
     @Override
     public void delete(String id) {
-        String sql="DELETE FROM HOADON WHERE MADH=?";
+        String sql="DELETE FROM HOADON WHERE MAHD=?";
         XJdbc.update(sql, id);
     }
 
     @Override
     public HoaDon selectById(String id) {
-        String sql="SELECT * FROM NHANVIEN WHERE MANV=?";
+        String sql="SELECT * FROM HOADON WHERE MAHD=?";
         List<HoaDon> list = this.selectBySql(sql, id);
         return list.size() > 0 ? list.get(0) : null;
     }
@@ -71,7 +71,7 @@ public class HoaDonDao extends QLSDao<HoaDon, String> {
                     hd.setMAHD(rs.getInt("MAHD"));
                     hd.setMAKH(rs.getInt("MAKH"));
                     hd.setTONGTIEN(rs.getFloat("TONGTIEN"));
-                    hd.setNGAYLAPHOADON(rs.getDate("NGAYLAPHOADON"));
+                    hd.setNGAYLAPHOADON(rs.getString("NGAYLAPHOADON"));
                     list.add(hd);
 
                 }

@@ -4,6 +4,19 @@
  */
 package com.QLS.ui;
 
+import java.util.Properties;
+import java.util.Random;
+import javax.mail.Message;
+import javax.mail.PasswordAuthentication;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
+import javax.swing.JOptionPane;
+
+
+
+
 /**
  *
  * @author ACER
@@ -16,6 +29,13 @@ public class frmQuenMatKhau extends javax.swing.JFrame {
     public frmQuenMatKhau() {
         initComponents();
     }
+    String code6;
+    private String generateRandomCode() {
+        Random random = new Random();
+        int code = 100000 + random.nextInt(900000);
+        return String.valueOf(code);
+    }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -28,9 +48,9 @@ public class frmQuenMatKhau extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        txt_email = new javax.swing.JTextField();
+        txtCode = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        txt_code = new javax.swing.JTextField();
+        txtEmail = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         btn_code = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
@@ -49,12 +69,22 @@ public class frmQuenMatKhau extends javax.swing.JFrame {
 
         btn_code.setBackground(new java.awt.Color(102, 204, 255));
         btn_code.setText("Lấy Mã ");
+        btn_code.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_codeActionPerformed(evt);
+            }
+        });
 
         jPanel2.setBackground(new java.awt.Color(102, 204, 255));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("XÁC NHẬN");
+        jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel4MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -85,10 +115,10 @@ public class frmQuenMatKhau extends javax.swing.JFrame {
                 .addGap(57, 57, 57)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(txt_email, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtCode, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(27, 27, 27)
                         .addComponent(btn_code, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(txt_code)
+                    .addComponent(txtEmail)
                     .addComponent(jLabel2)
                     .addComponent(jLabel3))
                 .addContainerGap(59, Short.MAX_VALUE))
@@ -105,12 +135,12 @@ public class frmQuenMatKhau extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txt_code, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txt_email, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtCode, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_code, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(40, 40, 40)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -131,6 +161,54 @@ public class frmQuenMatKhau extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btn_codeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_codeActionPerformed
+        // TODO add your handling code here:
+        Properties pro = new Properties();
+        code6 = generateRandomCode();
+        pro.put("mail.smtp.auth", true);
+        pro.put("mail.smtp.starttls.enable", "true");
+        pro.put("mail.smtp.host", "smtp.gmail.com");
+        pro.put("mail.smtp.port", "587");
+        pro.put("mail.smtp.socketFactory.port", "587");
+        pro.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
+        pro.put("mail.smtp.ssl.protocols", "TLSv1.2");
+        String Email = "huypc08444@gmail.com";
+        String Pass = "julygojovqgwwqlb";
+        Session session = Session.getInstance(pro,
+                new javax.mail.Authenticator() {
+            @Override
+            protected PasswordAuthentication getPasswordAuthentication() {
+                return new PasswordAuthentication(Email, Pass);
+            }
+        }
+        );
+        try {
+            Message myMessage = new MimeMessage(session);
+            myMessage.setFrom(new InternetAddress(Email));
+            myMessage.setRecipients(Message.RecipientType.TO, InternetAddress.parse(txtEmail.getText()));
+            myMessage.setSubject("Code recover password");
+            myMessage.setContent(code6, "text/html;charset=utf-8");
+            Transport.send(myMessage);
+            JOptionPane.showMessageDialog(this, "Gửi code thành công");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+    }//GEN-LAST:event_btn_codeActionPerformed
+
+    private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
+        // TODO add your handling code here:
+        if(txtCode.getText().equals(code6)){
+      System.out.println(txtEmail.getText());
+            this.dispose();
+            frmMatkhaumoi MKU = new frmMatkhaumoi(txtEmail.getText());
+            MKU.show();
+        } else {
+            JOptionPane.showMessageDialog(this, "Code nhập vào không đúng");
+        }
+
+    }//GEN-LAST:event_jLabel4MouseClicked
 
     /**
      * @param args the command line arguments
@@ -175,7 +253,7 @@ public class frmQuenMatKhau extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField txt_code;
-    private javax.swing.JTextField txt_email;
+    private javax.swing.JTextField txtCode;
+    private javax.swing.JTextField txtEmail;
     // End of variables declaration//GEN-END:variables
 }
