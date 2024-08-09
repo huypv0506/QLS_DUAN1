@@ -17,7 +17,7 @@ import java.util.List;
  *
  * @author ACER
  */
-public class SachDao extends QLSDao<Sach, String> {
+ public class SachDao extends QLSDao<Sach, String> {
 
     @Override
     public void insert(Sach entity) {
@@ -37,8 +37,9 @@ public class SachDao extends QLSDao<Sach, String> {
 
     @Override
     public void update(Sach entity) {
-        String sql="UPDATE KHACHHANG SET TENSACH=?, LOAISACH=?, TACGIA=?, SOLUONG=?, GIA=?, NGAYXUATBAN=?, MOTA=?, MANV=? WHERE MASACH=?";
-        XJdbc.update(sql,
+        String sql="UPDATE SACH SET TENSACH=?, LOAISACH=?, TACGIA=?, SOLUONG=?, GIA=?, NGAYXUATBAN=?, MOTA=?, MANV=? WHERE MASACH=?";
+         XJdbc.update(sql,
+                
                 entity.getTENSACH(),
                 entity.getLOAISACH(),
                 entity.getTACGIA(),
@@ -48,18 +49,22 @@ public class SachDao extends QLSDao<Sach, String> {
                 entity.getMOTA(),
                 entity.getMANV(),
                 entity.getMASACH()
+                
         );
     }
 
     @Override
     public void delete(String MASACH) {
-         String sql = "DELETE * FROM SACH WHERE MASACH=?";
+         Sach s = new Sach();
+        System.out.println(MASACH);
+         String sql = "DELETE FROM SACH WHERE MASACH=?";
         XJdbc.update(sql,MASACH );
+       
     }
 
     @Override
     public Sach selectById(String id) {
-        String sql="SELECT * FROM KHACHHANG WHERE MAKH=?";
+        String sql="SELECT * FROM SACH WHERE MASCH=?";
         List<Sach> list = this.selectBySql(sql, id);
         return list.size() > 0 ? list.get(0) : null;
     }

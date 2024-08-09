@@ -65,7 +65,7 @@ public class frmQuenMatKhau extends javax.swing.JFrame {
 
         jLabel2.setText("NHẬP EMAIL KHÔI PHỤC");
 
-        jLabel3.setText("CODE 6 SỐ");
+        jLabel3.setText("Mã OTP");
 
         btn_code.setBackground(new java.awt.Color(102, 204, 255));
         btn_code.setText("Lấy Mã ");

@@ -1,9 +1,11 @@
 D:\QLS_DUAN1\QLSACH\src\main\java\com\QLS\DAO\LoaiSachDao.java
 D:\QLS_DUAN1\QLSACH\src\main\java\com\QLS\ui\frmMatkhaumoi.java
+D:\QLS_DUAN1\QLSACH\src\main\java\com\QLS\entity\hoaDonCho.java
 D:\QLS_DUAN1\QLSACH\src\main\java\com\QLS\DAO\HoaDonDao.java
 D:\QLS_DUAN1\QLSACH\src\main\java\com\QLS\DAO\SachDao.java
 D:\QLS_DUAN1\QLSACH\src\main\java\com\QLS\ui\LichSu.java
 D:\QLS_DUAN1\QLSACH\src\main\java\com\QLS\ui\HuyenAo.java
+D:\QLS_DUAN1\QLSACH\src\main\java\com\QLS\ui\Mainchao.java
 D:\QLS_DUAN1\QLSACH\src\main\java\com\QLS\DAO\HoaDonChiTietDao.java
 D:\QLS_DUAN1\QLSACH\src\main\java\com\QLS\ui\DoiThuong.java
 D:\QLS_DUAN1\QLSACH\src\main\java\com\QLS\entity\KhachHang.java
@@ -32,6 +34,5 @@ D:\QLS_DUAN1\QLSACH\src\main\java\com\QLS\ui\TamLy.java
 D:\QLS_DUAN1\QLSACH\src\main\java\com\QLS\ui\frmDoiMatKhau.java
 D:\QLS_DUAN1\QLSACH\src\main\java\com\QLS\ui\frmLoaiSach.java
 D:\QLS_DUAN1\QLSACH\src\main\java\com\QLS\entity\Sach.java
-D:\QLS_DUAN1\QLSACH\src\main\java\com\QLS\ui\ChaoJDialog.java
 D:\QLS_DUAN1\QLSACH\src\main\java\com\QLS\ui\frmDangNhap.java
 D:\QLS_DUAN1\QLSACH\src\main\java\com\QLS\entity\HoaDon.java

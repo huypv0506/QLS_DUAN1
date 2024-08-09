@@ -311,7 +311,7 @@ public class frmLoaiSach extends javax.swing.JFrame {
                 .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(39, 39, 39)
                 .addComponent(jLabel4)
-                .addGap(0, 38, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         jPanel4.setBackground(new java.awt.Color(204, 204, 204));
@@ -323,17 +323,17 @@ public class frmLoaiSach extends javax.swing.JFrame {
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap(450, Short.MAX_VALUE)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(355, 355, 355)
                 .addComponent(jLabel10)
-                .addGap(313, 313, 313))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(31, 31, 31)
+                .addGap(27, 27, 27)
                 .addComponent(jLabel10)
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addContainerGap(35, Short.MAX_VALUE))
         );
 
         btnkhoahoc1.setText("Khoa Học");
@@ -488,7 +488,7 @@ public class frmLoaiSach extends javax.swing.JFrame {
                                 .addComponent(jButton14)))
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(91, 91, 91)
+                                .addGap(94, 94, 94)
                                 .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(126, 126, 126)
                                 .addComponent(jLabel21)
@@ -500,16 +500,18 @@ public class frmLoaiSach extends javax.swing.JFrame {
                                         .addComponent(btntamly1)
                                         .addGap(37, 37, 37))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(122, 122, 122)
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel24)
-                                            .addComponent(btnlichsu1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(0, 0, Short.MAX_VALUE))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(137, 137, 137)
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jButton15)
-                                            .addComponent(jButton10))))
+                                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addGap(122, 122, 122)
+                                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(jLabel24)
+                                                    .addComponent(btnlichsu1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addGap(137, 137, 137)
+                                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(jButton15)
+                                                    .addComponent(jButton10))))
+                                        .addGap(0, 0, Short.MAX_VALUE)))
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addGap(109, 109, 109)
@@ -615,27 +617,6 @@ public class frmLoaiSach extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void lb_doimkMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_doimkMouseClicked
-        frmDoiMatKhau doimk = new frmDoiMatKhau();
-        frmDoiMatKhau mk = new frmDoiMatKhau();
-        mk.setVisible(true);
-        setVisible(false);
-    }//GEN-LAST:event_lb_doimkMouseClicked
-
-    private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
-        // TODO add your handling code here:
-        Main ui = new Main();
-        ui.setVisible(true);
-        setVisible(false);
-    }//GEN-LAST:event_jLabel4MouseClicked
-
-    private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
-        // TODO add your handling code here:
-        frmNhanVien nv = new frmNhanVien();
-                nv.setVisible(true);
-                setVisible(false);
-    }//GEN-LAST:event_jLabel6MouseClicked
-
     private void btntamlyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btntamlyActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btntamlyActionPerformed
@@ -647,18 +628,6 @@ public class frmLoaiSach extends javax.swing.JFrame {
     private void btnvanhocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnvanhocActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnvanhocActionPerformed
-
-    private void btntamly1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btntamly1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btntamly1ActionPerformed
-
-    private void btnhuyenao1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnhuyenao1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnhuyenao1ActionPerformed
-
-    private void btnvanhoc1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnvanhoc1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnvanhoc1ActionPerformed
 
     private void btnkinhdi1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnkinhdi1ActionPerformed
         // TODO add your handling code here:
@@ -672,29 +641,13 @@ public class frmLoaiSach extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnkinhdi1MouseClicked
 
-    private void btntamly1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btntamly1MouseClicked
+    private void btnlichsu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnlichsu1MouseClicked
         // TODO add your handling code here:
-        TamLy tamLy = new TamLy();
-        tamLy.setVisible(true);
+        LichSu lichSu = new LichSu();
+        lichSu.setVisible(true);
         this.setVisible(false);
         this.dispose();
-    }//GEN-LAST:event_btntamly1MouseClicked
-
-    private void btnhuyenao1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnhuyenao1MouseClicked
-        // TODO add your handling code here:
-        HuyenAo huyenAo = new HuyenAo();
-        huyenAo.setVisible(true);
-        this.setVisible(false);
-        this.dispose();
-    }//GEN-LAST:event_btnhuyenao1MouseClicked
-
-    private void btnvanhoc1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnvanhoc1MouseClicked
-        // TODO add your handling code here:
-        Vanhoc vanhoc = new Vanhoc();
-        vanhoc.setVisible(true);
-        this.setVisible(false);
-        this.dispose();
-    }//GEN-LAST:event_btnvanhoc1MouseClicked
+    }//GEN-LAST:event_btnlichsu1MouseClicked
 
     private void btntoanhoc1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btntoanhoc1MouseClicked
         // TODO add your handling code here:
@@ -704,13 +657,49 @@ public class frmLoaiSach extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btntoanhoc1MouseClicked
 
-    private void btnlichsu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnlichsu1MouseClicked
+    private void btnvanhoc1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnvanhoc1ActionPerformed
         // TODO add your handling code here:
-        LichSu lichSu = new LichSu();
-        lichSu.setVisible(true);
+    }//GEN-LAST:event_btnvanhoc1ActionPerformed
+
+    private void btnvanhoc1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnvanhoc1MouseClicked
+        // TODO add your handling code here:
+        Vanhoc vanhoc = new Vanhoc();
+        vanhoc.setVisible(true);
         this.setVisible(false);
         this.dispose();
-    }//GEN-LAST:event_btnlichsu1MouseClicked
+    }//GEN-LAST:event_btnvanhoc1MouseClicked
+
+    private void btnhuyenao1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnhuyenao1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnhuyenao1ActionPerformed
+
+    private void btnhuyenao1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnhuyenao1MouseClicked
+        // TODO add your handling code here:
+        HuyenAo huyenAo = new HuyenAo();
+        huyenAo.setVisible(true);
+        this.setVisible(false);
+        this.dispose();
+    }//GEN-LAST:event_btnhuyenao1MouseClicked
+
+    private void btndoithuong1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btndoithuong1MouseClicked
+        // TODO add your handling code here:
+        DoiThuong doiThuong = new DoiThuong();
+        doiThuong.setVisible(true);
+        this.setVisible(false);
+        this.dispose();
+    }//GEN-LAST:event_btndoithuong1MouseClicked
+
+    private void btntamly1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btntamly1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btntamly1ActionPerformed
+
+    private void btntamly1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btntamly1MouseClicked
+        // TODO add your handling code here:
+        TamLy tamLy = new TamLy();
+        tamLy.setVisible(true);
+        this.setVisible(false);
+        this.dispose();
+    }//GEN-LAST:event_btntamly1MouseClicked
 
     private void btnkhoahoc1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnkhoahoc1MouseClicked
         // TODO add your handling code here:
@@ -720,13 +709,26 @@ public class frmLoaiSach extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnkhoahoc1MouseClicked
 
-    private void btndoithuong1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btndoithuong1MouseClicked
+    private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
         // TODO add your handling code here:
-        DoiThuong doiThuong = new DoiThuong();
-        doiThuong.setVisible(true);
-        this.setVisible(false);
-        this.dispose();
-    }//GEN-LAST:event_btndoithuong1MouseClicked
+        Main ui = new Main();
+        ui.setVisible(true);
+        setVisible(false);
+    }//GEN-LAST:event_jLabel4MouseClicked
+
+    private void lb_doimkMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_doimkMouseClicked
+        frmDoiMatKhau doimk = new frmDoiMatKhau();
+        frmDoiMatKhau mk = new frmDoiMatKhau();
+        mk.setVisible(true);
+        setVisible(false);
+    }//GEN-LAST:event_lb_doimkMouseClicked
+
+    private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
+        // TODO add your handling code here:
+        frmNhanVien nv = new frmNhanVien();
+        nv.setVisible(true);
+        setVisible(false);
+    }//GEN-LAST:event_jLabel6MouseClicked
 
     /**
      * @param args the command line arguments

@@ -5,6 +5,7 @@
 package com.QLS.ui;
 
 import com.QLS.entity.KhachHang;
+import com.QLS.utils.Auth;
 
 /**
  *
@@ -17,6 +18,11 @@ public class Main extends javax.swing.JFrame {
      */
     public Main() {
         initComponents();
+        init();
+    }
+    
+    public void init(){
+       new Mainchao(this, true).setVisible(true);
     }
 
     /**
@@ -97,6 +103,11 @@ public class Main extends javax.swing.JFrame {
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("LOẠI SÁCH");
         jLabel5.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(255, 255, 255)));
+        jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel5MouseClicked(evt);
+            }
+        });
         jLabel5.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 jLabel5KeyPressed(evt);
@@ -309,6 +320,13 @@ public class Main extends javax.swing.JFrame {
         thanhToan.setVisible(true);
         setVisible(false);
     }//GEN-LAST:event_jLabel9MouseClicked
+
+    private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
+        // TODO add your handling code here:
+        frmLoaiSach ui = new frmLoaiSach();
+        ui.setVisible(true);
+        setVisible(false);
+    }//GEN-LAST:event_jLabel5MouseClicked
 
     /**
      * @param args the command line arguments
