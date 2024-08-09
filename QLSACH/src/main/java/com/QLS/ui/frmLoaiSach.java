@@ -7,8 +7,9 @@ package com.QLS.ui;
 import com.QLS.DAO.LoaiSachDao;
 
 import com.QLS.entity.LoaiSach;
+import com.QLS.entity.Sach;
 
-import com.QLS.utils.Auth;
+
 import com.QLS.utils.MsgBox;
 import java.awt.event.MouseEvent;
 
@@ -31,7 +32,7 @@ private List<LoaiSach> listls;
     public frmLoaiSach() {
         initComponents();
         filltable();
-        updateStatus();
+        
     }
 
     /**
@@ -705,6 +706,7 @@ private List<LoaiSach> listls;
         txt_malsach.setText(String.valueOf(ls.getMALOAI()));
         txt_tenlsach.setText(ls.getTENLOAI());
         
+        
     }
 
     void update() {
@@ -724,49 +726,37 @@ private List<LoaiSach> listls;
     
 
     void delete() {
-        String mals = txt_malsach.getText();
-        if (mals.equals(Auth.user.getMANV())) {
-            MsgBox.alert(this, "Bạn không được xóa chính bạn!");
-        } else if (MsgBox.confirm(this, "Bạn thực sự muốn xóa nhân viên này?")) {
-            try {
-                lsDao.delete(mals);
-                this.filltable();
-                this.clearForm();
-                MsgBox.alert(this, "Xóa thành công!");
-            } catch (Exception e) {
-                MsgBox.alert(this, "Xóa thất bại!");
-            }
-
+        String masach = txt_malsach.getText();
+        try {
+            lsDao.delete(masach);
+            this.filltable();
+            this.clearForm();
+            MsgBox.alert(this, "Xóa thành công!");
+        } catch (Exception e) {
+            MsgBox.alert(this, "Xóa thất bại!");
         }
+
+        
     }
 
     void insert() {
-//         NhanVien nv = nvDao.update(entity);
-        LoaiSach ls = this.getform();
-        
-            try {
-                lsDao.insert(ls);
-                this.filltable();
-                this.clearForm();
-                MsgBox.alert(this, "Cập nhật thành công!");
-            } catch (Exception e) {
-                MsgBox.alert(this, "Cập nhật thất bại!");
-            }
-        }
+        LoaiSach ls = getform(); // Lấy thông tin từ form
+    if(ls.getMALOAI() == 0){  // Kiểm tra nếu MALOAI là số và có giá trị không hợp lệ
+       MsgBox.alert(this, "Mã sách không được bỏ trống hoặc bằng 0");
+    } else {
+        lsDao.insert(ls);  // Thêm đối tượng LoaiSach vào database
+        this.filltable();  // Cập nhật bảng sau khi thêm mới
+        this.clearForm();  // Xóa các trường trên form sau khi thêm thành công
+        MsgBox.alert(this, "Thêm sách thành công");
+    }
+    }      
 
     
 
     void setform(LoaiSach ls) {
-        if (ls != null) {
-            txt_malsach.setText(String.valueOf(ls.getMALOAI()));
-            txt_tenlsach.setText(ls.getTENLOAI());
-            
-            
-        } else {
-            // Xử lý khi nv là null
-            MsgBox.alert(this, "các trường dữ liệu không đc trống");
-        }
-
+        txt_malsach.setText(ls.getMALOAI() + "");
+        txt_tenlsach.setText(ls.getTENLOAI());
+        
     }
 
     LoaiSach getform() {
@@ -779,27 +769,12 @@ private List<LoaiSach> listls;
 
     void clearForm() {
         LoaiSach ls = new LoaiSach();
+        
         this.setform(ls);
         this.row = -1;
-        this.updateStatus();
     }
 
-    void updateStatus() {
-        boolean edit = (this.row >= 0);
-//        boolean first = (this.row == 0);
-//        boolean last = (this.row == tbl_nhavien.getRowCount() - 1);
-        // Trạng thái form
-        txt_malsach.setEditable(!edit);
-        ntnadd.setEnabled(!edit);
-        btnsua.setEnabled(!edit);
-        btnxoa.setEnabled(!edit);
-
-        // Trạng thái điều hướng
-//        btnFirst.setEnabled(edit && !first);
-//        btnPrev.setEnabled(edit && !first);
-//        btnNext.setEnabled(edit && !last);
-//        btnLast.setEnabled(edit && !last);
-    }
+ 
 
 
 
