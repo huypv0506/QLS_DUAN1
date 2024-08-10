@@ -24,7 +24,9 @@ import javax.swing.table.DefaultTableModel;
  * @author ACER
  */
 public class frmLoaiSach extends javax.swing.JFrame implements MouseListener {
-private List<LoaiSach> listls;
+
+    private List<LoaiSach> listls;
+
     /**
      * Creates new form Main
      */
@@ -522,35 +524,35 @@ private List<LoaiSach> listls;
 
     private void ntnaddMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ntnaddMouseClicked
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_ntnaddMouseClicked
 
     private void btnsuaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnsuaMouseClicked
-           // TODO add your handling code here:
+        // TODO add your handling code here:
     }//GEN-LAST:event_btnsuaMouseClicked
 
     private void btnxoaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnxoaMouseClicked
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_btnxoaMouseClicked
 
     private void btnnewMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnnewMouseClicked
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_btnnewMouseClicked
 
     private void ntnaddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ntnaddActionPerformed
         // TODO add your handling code here:
         this.insert();
         if (frmLoaiSach.FormValidator.validateForm(txt_tenlsach, txt_malsach)) {
-        // Tiếp tục xử lý lưu dữ liệu nếu form hợp lệ
-        System.out.println("Vui lòng kiểm tra dữ liệu nhập");
-    }
+            // Tiếp tục xử lý lưu dữ liệu nếu form hợp lệ
+            System.out.println("Vui lòng kiểm tra dữ liệu nhập");
+        }
     }//GEN-LAST:event_ntnaddActionPerformed
 
     private void btnsuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsuaActionPerformed
         // TODO add your handling code here:
-         this.clearForm();
+        this.clearForm();
     }//GEN-LAST:event_btnsuaActionPerformed
 
     private void btnxoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnxoaActionPerformed
@@ -560,10 +562,12 @@ private List<LoaiSach> listls;
 
     private void btnnewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnnewActionPerformed
         // TODO add your handling code here:
-        this.update();
+//        this.update();
+        clearForm();
     }//GEN-LAST:event_btnnewActionPerformed
     LoaiSachDao lsDao = new LoaiSachDao();
     int row = -1;
+
     /**
      * @param args the command line arguments
      */
@@ -613,7 +617,7 @@ private List<LoaiSach> listls;
             }
         });
     }
-    
+
     public void filltable() {
         listls = lsDao.selectAll();
         String[] headers = new String[]{"Mã LS", "Tên Loại Sách"};
@@ -631,24 +635,22 @@ private List<LoaiSach> listls;
         LoaiSach ls = listls.get(i);
         txt_malsach.setText(String.valueOf(ls.getMALOAI()));
         txt_tenlsach.setText(ls.getTENLOAI());
-        
+
     }
 
     void update() {
 //         NhanVien nv = nvDao.update(entity);
         LoaiSach ls = this.getform();
-        
-            try {
-                lsDao.update(ls);
-                this.filltable();
-                MsgBox.alert(this, "Cập nhật thành công!");
-            } catch (Exception e) {
-                e.printStackTrace();
-                MsgBox.alert(this, "Cập nhật thất bại!");
-            }
-        }
 
-    
+//        try {
+            lsDao.update(ls);
+            this.filltable();
+            MsgBox.alert(this, "Cập nhật thành công!");
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//            MsgBox.alert(this, "Cập nhật thất bại!");
+//        }
+    }
 
     void delete() {
         String mals = txt_malsach.getText();
@@ -670,25 +672,22 @@ private List<LoaiSach> listls;
     void insert() {
 //         NhanVien nv = nvDao.update(entity);
         LoaiSach ls = this.getform();
-        
-            try {
-                lsDao.insert(ls);
-                this.filltable();
-                this.clearForm();
-                MsgBox.alert(this, "Cập nhật thành công!");
-            } catch (Exception e) {
-                MsgBox.alert(this, "Cập nhật thất bại!");
-            }
-        }
 
-    
+        try {
+            lsDao.insert(ls);
+            this.filltable();
+            this.clearForm();
+            MsgBox.alert(this, "Cập nhật thành công!");
+        } catch (Exception e) {
+            MsgBox.alert(this, "Cập nhật thất bại!");
+        }
+    }
 
     void setform(LoaiSach ls) {
         if (ls != null) {
             txt_malsach.setText(String.valueOf(ls.getMALOAI()));
             txt_tenlsach.setText(ls.getTENLOAI());
-            
-            
+
         } else {
             // Xử lý khi nv là null
             MsgBox.alert(this, "các trường dữ liệu không đc trống");
@@ -700,7 +699,7 @@ private List<LoaiSach> listls;
         LoaiSach ls = new LoaiSach();
         ls.setMALOAI(Integer.parseInt(txt_malsach.getText()));
         ls.setTENLOAI(txt_tenlsach.getText());
-        
+
         return ls;
     }
 
@@ -728,37 +727,30 @@ private List<LoaiSach> listls;
 //        btnLast.setEnabled(edit && !last);
     }
 
+    public class FormValidator {
 
-
-
-public class FormValidator {
-
-    // Hàm kiểm tra form trống
-    public static boolean isFormEmpty(JTextField... fields) {
-        for (JTextField field : fields) {
-            if (field.getText().trim().isEmpty()) {
-                return true; // Nếu có trường nào trống thì trả về true
+        // Hàm kiểm tra form trống
+        public static boolean isFormEmpty(JTextField... fields) {
+            for (JTextField field : fields) {
+                if (field.getText().trim().isEmpty()) {
+                    return true; // Nếu có trường nào trống thì trả về true
+                }
             }
-        }
-        return false; // Không có trường nào trống
-    }
-
-    
-
-    // Hàm kiểm tra form
-    public static boolean validateForm(JTextField txt_tenlsach, JTextField txt_malsach) {
-        // Kiểm tra form trống
-        if (isFormEmpty(txt_tenlsach, txt_tenlsach)) {
-            JOptionPane.showMessageDialog(null, "vui lòng kiểm tra dữ liệu.", "Warning", JOptionPane.WARNING_MESSAGE);
-            return false;
+            return false; // Không có trường nào trống
         }
 
-       
+        // Hàm kiểm tra form
+        public static boolean validateForm(JTextField txt_tenlsach, JTextField txt_malsach) {
+            // Kiểm tra form trống
+            if (isFormEmpty(txt_tenlsach, txt_tenlsach)) {
+                JOptionPane.showMessageDialog(null, "vui lòng kiểm tra dữ liệu.", "Warning", JOptionPane.WARNING_MESSAGE);
+                return false;
+            }
 
-        // Nếu tất cả đều hợp lệ
-        return true;
+            // Nếu tất cả đều hợp lệ
+            return true;
+        }
     }
-}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btndoithuong;

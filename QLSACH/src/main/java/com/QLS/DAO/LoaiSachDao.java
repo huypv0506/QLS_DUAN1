@@ -39,7 +39,7 @@ public class LoaiSachDao extends QLSDao<LoaiSach, String>{
 
     @Override
     public void delete(String MALOAI) {
-        String sql = "DELETE * FROM LOAISACH WHERE MALOAI=?";
+        String sql = "DELETE FROM LOAISACH WHERE MALOAI=?";
         XJdbc.update(sql,MALOAI );
     }
 

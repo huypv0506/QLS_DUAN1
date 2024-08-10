@@ -6,6 +6,7 @@ com\QLS\ui\frmNhanVien$FormValidator.class
 com\QLS\ui\toanhoc$4.class
 com\QLS\ui\KhoaHoc$4.class
 com\QLS\ui\Main$1.class
+com\QLS\ui\frmLoaiSach$FormValidator.class
 com\QLS\ui\frmLoaiSach$13.class
 com\QLS\ui\frmMatkhaumoi$1.class
 com\QLS\ui\frmSach$6.class
@@ -15,12 +16,12 @@ com\QLS\ui\Vanhoc$5.class
 com\QLS\ui\frmKhachHang$13.class
 com\QLS\DAO\QLSDao.class
 com\QLS\ui\frmLoaiSach$2.class
+com\QLS\ui\ChaoJDialog$2.class
 com\QLS\ui\TamLy$4.class
 com\QLS\ui\frmHoaDon$1.class
 com\QLS\ui\frmDangNhap$3.class
 com\QLS\ui\frmSach$11.class
 com\QLS\ui\Main$6.class
-com\QLS\ui\frmLoaiSach$18.class
 com\QLS\ui\Kinhdi$1.class
 com\QLS\entity\HoaDon.class
 com\QLS\ui\frmNhanVien$9.class
@@ -41,6 +42,7 @@ com\QLS\ui\TamLy$1.class
 com\QLS\ui\frmThanhToan.class
 com\QLS\ui\frmQuenMatKhau$3.class
 com\QLS\ui\frmKhachHang$18.class
+com\QLS\ui\frmThanhToan$12.class
 com\QLS\ui\frmHoaDon$4.class
 com\QLS\ui\Main$8.class
 com\QLS\ui\toanhoc.class
@@ -54,12 +56,12 @@ com\QLS\ui\Main$4.class
 com\QLS\ui\frmKhachHang$16.class
 com\QLS\ui\frmLoaiSach$16.class
 com\QLS\ui\frmLoaiSach$4.class
+com\QLS\ui\frmThanhToan$13.class
 com\QLS\ui\frmSach$3.class
 com\QLS\utils\MsgBox.class
 com\QLS\ui\Main$5.class
 com\QLS\ui\Kinhdi$2.class
 com\QLS\ui\frmHoaDon$8.class
-com\QLS\ui\frmLoaiSach$17.class
 com\QLS\ui\frmLoaiSach$10.class
 com\QLS\ui\frmQuenMatKhau.class
 com\QLS\ui\DoiThuong.class
@@ -68,6 +70,7 @@ com\QLS\ui\KhoaHoc$2.class
 com\QLS\ui\frmLoaiSach$11.class
 com\QLS\ui\frmMatkhaumoi$3.class
 com\QLS\ui\TamLy$3.class
+com\QLS\ui\ChaoJDialog$1.class
 com\QLS\ui\frmLoaiSach$9.class
 com\QLS\ui\frmKhachHang$12.class
 com\QLS\ui\TamLy.class
@@ -103,7 +106,6 @@ com\QLS\ui\frmNhanVien$8.class
 com\QLS\ui\frmDangNhap$2.class
 com\QLS\ui\TamLy$5.class
 com\QLS\ui\frmLoaiSach$1.class
-com\QLS\ui\frmLoaiSach$19.class
 com\QLS\ui\Main$7.class
 com\QLS\ui\LichSu$5.class
 com\QLS\ui\KhoaHoc$3.class
@@ -119,6 +121,7 @@ com\QLS\ui\LichSu.class
 com\QLS\ui\frmKhachHang$4.class
 com\QLS\ui\Mainchao.class
 com\QLS\ui\frmHoaDon$7.class
+com\QLS\ui\frmThanhToan$11.class
 com\QLS\ui\frmQuenMatKhau$4.class
 com\QLS\ui\Kinhdi.class
 com\QLS\ui\frmSach$5.class
@@ -138,10 +141,12 @@ com\QLS\ui\HuyenAo$2.class
 com\QLS\ui\LichSu$3.class
 com\QLS\ui\Mainchao$1.class
 com\QLS\ui\frmQuenMatKhau$2.class
+com\QLS\ui\ChaoJDialog$1$1.class
 com\QLS\ui\KhoaHoc$5.class
 com\QLS\DAO\SachDao.class
 com\QLS\ui\frmHoaDon$11.class
 com\QLS\ui\frmNhanVien$12.class
+com\QLS\ui\ChaoJDialog.class
 com\QLS\ui\frmDoiMatKhau.class
 com\QLS\DAO\HoaDonChiTietDao.class
 com\QLS\ui\frmHoaDon$3.class

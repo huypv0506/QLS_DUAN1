@@ -62,7 +62,7 @@ private List<Sach> lists;
         jLabel11 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        bill = new javax.swing.JTextArea();
         jPanel7 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         lbtongTien = new javax.swing.JLabel();
@@ -71,11 +71,11 @@ private List<Sach> lists;
         jLabel16 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
+        lbtienThua = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
+        txt_tienkhachdua = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -168,7 +168,7 @@ private List<Sach> lists;
         jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel9.setText("HÓA ĐƠN CHI TIẾT");
+        jLabel9.setText("THANH TOÁN");
         jLabel9.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(255, 255, 255)));
         jLabel9.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -310,9 +310,9 @@ private List<Sach> lists;
                 .addGap(154, 154, 154))
         );
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane3.setViewportView(jTextArea1);
+        bill.setColumns(20);
+        bill.setRows(5);
+        jScrollPane3.setViewportView(bill);
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -340,9 +340,19 @@ private List<Sach> lists;
         lbtongTien.setText("00");
 
         jButton6.setText("Tính tiền");
+        jButton6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton6MouseClicked(evt);
+            }
+        });
 
         jButton7.setBackground(new java.awt.Color(36, 150, 101));
         jButton7.setText("Xuất hóa đơn");
+        jButton7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton7MouseClicked(evt);
+            }
+        });
 
         jLabel16.setText("Cập nhật hóa đơn:");
 
@@ -354,13 +364,9 @@ private List<Sach> lists;
         jLabel19.setForeground(new java.awt.Color(153, 153, 153));
         jLabel19.setText("Tiền khách đưa:");
 
-        jLabel14.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(255, 51, 51));
-        jLabel14.setText("00");
-
-        jLabel15.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel15.setForeground(new java.awt.Color(255, 51, 51));
-        jLabel15.setText("00");
+        lbtienThua.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        lbtienThua.setForeground(new java.awt.Color(255, 51, 51));
+        lbtienThua.setText("00");
 
         jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 0, 0));
@@ -373,6 +379,12 @@ private List<Sach> lists;
         jLabel20.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel20.setForeground(new java.awt.Color(255, 0, 51));
         jLabel20.setText("VND");
+
+        txt_tienkhachdua.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txt_tienkhachduaKeyReleased(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
@@ -395,20 +407,23 @@ private List<Sach> lists;
                     .addComponent(jLabel10)
                     .addComponent(jLabel18)
                     .addComponent(jLabel19))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 109, Short.MAX_VALUE)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addComponent(lbtongTien)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel12))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel7Layout.createSequentialGroup()
+                                .addComponent(lbtongTien)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel12))
+                            .addGroup(jPanel7Layout.createSequentialGroup()
+                                .addComponent(lbtienThua)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel20))))
                     .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addComponent(jLabel15)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel13))
-                    .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addComponent(jLabel14)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel20)))
+                        .addGap(70, 70, 70)
+                        .addComponent(txt_tienkhachdua, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel13)))
                 .addGap(56, 56, 56))
         );
         jPanel7Layout.setVerticalGroup(
@@ -416,7 +431,7 @@ private List<Sach> lists;
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel16)
-                .addGap(38, 38, 38)
+                .addGap(35, 35, 35)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
                     .addComponent(lbtongTien)
@@ -425,15 +440,15 @@ private List<Sach> lists;
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addGap(4, 4, 4)
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel15)
-                            .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txt_tienkhachdua, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel19)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel18)
-                    .addComponent(jLabel14)
+                    .addComponent(lbtienThua)
                     .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(44, 44, 44)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -550,9 +565,16 @@ private List<Sach> lists;
 int xoa;
     private void tbl_choMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_choMouseClicked
        xoa = tbl_cho.getSelectedRow();
-        
+       int i = tbl_cho.getSelectedRow();
+       showTongTien(i);
     }//GEN-LAST:event_tbl_choMouseClicked
-
+    float tong = 0;
+    void showTongTien(int i){
+        
+        hoaDonCho hdc = list.get(i);
+        tong += hdc.getGiaTien();
+        lbtongTien.setText(tong+"");
+    }
     private void btndeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndeleteActionPerformed
 //        if(xoa==-1){
 //            JOptionPane.showMessageDialog(this, "Bạn chưa chọn vị trí để xóa");
@@ -582,6 +604,27 @@ int xoa;
         
     }//GEN-LAST:event_jLabel9MouseClicked
 
+    private void jButton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseClicked
+        // TODO add your handling code here:
+        tinhTien();
+    }//GEN-LAST:event_jButton6MouseClicked
+
+    private void txt_tienkhachduaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_tienkhachduaKeyReleased
+//        tinhTien();
+    }//GEN-LAST:event_txt_tienkhachduaKeyReleased
+
+    private void jButton7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton7MouseClicked
+        // TODO add your handling code here:
+        bill_print();
+    }//GEN-LAST:event_jButton7MouseClicked
+    
+    void tinhTien(){
+        float tienKhach = Float.parseFloat(txt_tienkhachdua.getText());
+        float tongtien = Float.parseFloat(lbtongTien.getText());
+        float tienThua = tongtien - tienKhach;
+        lbtienThua.setText(tienThua+"");
+        JOptionPane.showMessageDialog(this, "Bạn đã thanh toán "+tongtien +" Tiền thừa của bạn là:"+tienThua);
+    }
     /**
      * @param args the command line arguments
      */
@@ -661,6 +704,12 @@ int xoa;
             filltablehdcho();
         }
     }
+     public  void showmoney(int vt){
+//         hoaDonCho hdc = list.get(vt);
+//         lbtongTien.setText();
+    
+        
+     }
         public void filltablehdcho() {
         String[] headers = new String[]{"Tên sản phẩm", "Số lượng", "loại sách", "Giá tiền", "Mã nhân viên"};
         DefaultTableModel tbl_model = new DefaultTableModel(headers, 0);
@@ -689,10 +738,50 @@ int xoa;
         filltablehdcho();
     }
 }
-
+        public void bill_print(){
+ 
+        try {
+            bill.setText("                         Shop Thằng Huy SÁch \n");
+            bill.setText(bill.getText() + "\tFPOLY CanTho, \n");
+            bill.setText(bill.getText() + "\tColombo, Srilanka, \n");
+            bill.setText(bill.getText() + "\t0911371346, \n");
+            bill.setText(bill.getText() + "----------------------------------------------------------------\n");
+            bill.setText(bill.getText() + " Tên sản phẩm \t Số lượng \t  Giá tiền  \t MaNv \n");
+            bill.setText(bill.getText() + "----------------------------------------------------------------\n");
+            
+          DefaultTableModel df = (DefaultTableModel) tbl_cho.getModel();
+           for (int i = 0; i < tbl_cho.getRowCount(); i++) {
+               
+                String name = df.getValueAt(i, 0).toString();
+                String qt = df.getValueAt(i, 1).toString();
+                String prc = df.getValueAt(i, 3).toString();
+                String manv = df.getValueAt(i, 4).toString();
+                
+                bill.setText(bill.getText() + name+"\t"+qt+"\t"+prc+"\t"+manv+" \n");
+                
+            }
+            bill.setText(bill.getText() + "----------------------------------------------------------------\n");
+            bill.setText(bill.getText() + "Tổng tiền :\t"+ lbtongTien.getText()+"\n");
+            bill.setText(bill.getText() + "Tiền khách đưa :\t"+ txt_tienkhachdua.getText()+"\n");
+            bill.setText(bill.getText() + "Tiền thừa :\t"+ lbtienThua.getText()+"\n");
+            bill.setText(bill.getText() + "====================================\n");
+            bill.setText(bill.getText() +"                     Cảm ơn quý khách...!"+"\n");
+            bill.setText(bill.getText() + "----------------------------------------------------------------\n");
+            bill.setText(bill.getText() +"                     Software by Techinbox"+"\n");
+            
+            
+            bill.print();
+            
+        } catch (Exception ex) {
+            
+           
+        }
+ 
+ }
         
     // không biết viết cái gì cả lỏ quá trời ơi
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextArea bill;
     private javax.swing.JButton btnclaern;
     private javax.swing.JButton btndelete;
     private javax.swing.JButton jButton6;
@@ -702,8 +791,6 @@ int xoa;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
@@ -727,10 +814,11 @@ int xoa;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JLabel lb_doimk;
+    private javax.swing.JLabel lbtienThua;
     private javax.swing.JLabel lbtongTien;
     private javax.swing.JTable tbl_cho;
     private javax.swing.JTable tbl_sach;
+    private javax.swing.JTextField txt_tienkhachdua;
     // End of variables declaration//GEN-END:variables
 }
