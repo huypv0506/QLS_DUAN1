@@ -6,7 +6,10 @@ package com.QLS.ui;
 
 import com.QLS.DAO.SachDao;
 import com.QLS.entity.Sach;
+import com.QLS.entity.hoaDonCho;
+import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -20,7 +23,10 @@ private List<Sach> lists;
      */
     public frmThanhToan() {
         initComponents();
-        filltable();
+        
+        filltablesacch();
+//        showtb();
+//        filltablehdcho();
     }
 
     /**
@@ -48,23 +54,18 @@ private List<Sach> lists;
         jPanel4 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tbl_cho = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        btndelete = new javax.swing.JButton();
+        btnclaern = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tbl_sach = new javax.swing.JTable();
         jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
         jPanel6 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         jPanel7 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
+        lbtongTien = new javax.swing.JLabel();
         jButton6 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
         jLabel16 = new javax.swing.JLabel();
@@ -72,6 +73,9 @@ private List<Sach> lists;
         jLabel19 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -116,11 +120,6 @@ private List<Sach> lists;
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("SÁCH");
         jLabel3.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(255, 255, 255)));
-        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel3MouseClicked(evt);
-            }
-        });
 
         jLabel5.setBackground(new java.awt.Color(255, 255, 255));
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
@@ -128,11 +127,6 @@ private List<Sach> lists;
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("LOẠI SÁCH");
         jLabel5.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(255, 255, 255)));
-        jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel5MouseClicked(evt);
-            }
-        });
 
         jLabel6.setBackground(new java.awt.Color(255, 255, 255));
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
@@ -257,15 +251,21 @@ private List<Sach> lists;
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tbl_cho.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbl_choMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tbl_cho);
 
-        jButton1.setText("Thêm");
+        btndelete.setText("Xóa");
+        btndelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btndeleteActionPerformed(evt);
+            }
+        });
 
-        jButton2.setText("sửa ");
-
-        jButton3.setText("Xóa");
-
-        jButton4.setText("Làm mới");
+        btnclaern.setText("Làm mới");
 
         tbl_sach.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -278,53 +278,36 @@ private List<Sach> lists;
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        tbl_sach.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbl_sachMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(tbl_sach);
 
         jLabel11.setText("Sản phẩm:");
-
-        jLabel12.setText("Khách hàng :");
-
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
-            },
-            new String [] {
-                "Họ", "Tên Khách Hàng"
-            }
-        ));
-        jScrollPane4.setViewportView(jTable1);
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel11)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel12))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel11)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addGap(21, 21, 21)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel11)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel12)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(154, 154, 154))
         );
 
         jTextArea1.setColumns(20);
@@ -352,12 +335,13 @@ private List<Sach> lists;
         jLabel10.setForeground(new java.awt.Color(153, 153, 153));
         jLabel10.setText("Tổng tiền:");
 
-        jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(255, 51, 51));
-        jLabel13.setText("0VND");
+        lbtongTien.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        lbtongTien.setForeground(new java.awt.Color(255, 51, 51));
+        lbtongTien.setText("00");
 
         jButton6.setText("Tính tiền");
 
+        jButton7.setBackground(new java.awt.Color(36, 150, 101));
         jButton7.setText("Xuất hóa đơn");
 
         jLabel16.setText("Cập nhật hóa đơn:");
@@ -372,11 +356,23 @@ private List<Sach> lists;
 
         jLabel14.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(255, 51, 51));
-        jLabel14.setText("0VND");
+        jLabel14.setText("00");
 
         jLabel15.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(255, 51, 51));
-        jLabel15.setText("0VND");
+        jLabel15.setText("00");
+
+        jLabel12.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel12.setText("VND");
+
+        jLabel13.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(255, 0, 51));
+        jLabel13.setText("VND");
+
+        jLabel20.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jLabel20.setForeground(new java.awt.Color(255, 0, 51));
+        jLabel20.setText("VND");
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
@@ -401,10 +397,19 @@ private List<Sach> lists;
                     .addComponent(jLabel19))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 109, Short.MAX_VALUE)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel15)
-                    .addComponent(jLabel14)
-                    .addComponent(jLabel13))
-                .addGap(82, 82, 82))
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addComponent(lbtongTien)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel12))
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addComponent(jLabel15)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel13))
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addComponent(jLabel14)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel20)))
+                .addGap(56, 56, 56))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -414,15 +419,22 @@ private List<Sach> lists;
                 .addGap(38, 38, 38)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
-                    .addComponent(jLabel13))
-                .addGap(4, 4, 4)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel19)
-                    .addComponent(jLabel15))
-                .addGap(18, 18, 18)
+                    .addComponent(lbtongTien)
+                    .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addGap(4, 4, 4)
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel15)
+                            .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel19)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel18)
-                    .addComponent(jLabel14))
+                    .addComponent(jLabel14)
+                    .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(44, 44, 44)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton6)
@@ -442,14 +454,11 @@ private List<Sach> lists;
                         .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jScrollPane1)
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
-                            .addGap(16, 16, 16)
-                            .addComponent(jButton1)
-                            .addGap(31, 31, 31)
-                            .addComponent(jButton2)
-                            .addGap(46, 46, 46)
-                            .addComponent(jButton3)
-                            .addGap(50, 50, 50)
-                            .addComponent(jButton4)))
+                            .addGap(92, 92, 92)
+                            .addComponent(btndelete)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnclaern)
+                            .addGap(61, 61, 61)))
                     .addComponent(jLabel17))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -467,17 +476,15 @@ private List<Sach> lists;
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton1)
-                            .addComponent(jButton2)
-                            .addComponent(jButton3)
-                            .addComponent(jButton4))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btndelete)
+                            .addComponent(btnclaern))
+                        .addGap(33, 33, 33)
+                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(37, Short.MAX_VALUE))
         );
 
         jPanel7.getAccessibleContext().setAccessibleName("Cập nhật hóa đơn");
@@ -535,40 +542,44 @@ private List<Sach> lists;
                 setVisible(false);
     }//GEN-LAST:event_jLabel6MouseClicked
 
-    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
+    private void tbl_sachMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_sachMouseClicked
         // TODO add your handling code here:
-        frmSach sach = new frmSach();
-        sach.setVisible(true);
-        setVisible(false);
-    }//GEN-LAST:event_jLabel3MouseClicked
+        int i = tbl_sach.getSelectedRow();
+        this.showtb(i);
+    }//GEN-LAST:event_tbl_sachMouseClicked
+int xoa;
+    private void tbl_choMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_choMouseClicked
+       xoa = tbl_cho.getSelectedRow();
+        
+    }//GEN-LAST:event_tbl_choMouseClicked
 
-    private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
-        // TODO add your handling code here:
-        frmLoaiSach loaiSach = new frmLoaiSach();
-        loaiSach.setVisible(true);
-        setVisible(false);
-    }//GEN-LAST:event_jLabel5MouseClicked
+    private void btndeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndeleteActionPerformed
+//        if(xoa==-1){
+//            JOptionPane.showMessageDialog(this, "Bạn chưa chọn vị trí để xóa");
+//        }
+//        System.out.println(xoa);
+//        tbl_cho.remove(xoa);
+//        filltablehdcho();
+    this.deleteSelectedRow();
+    }//GEN-LAST:event_btndeleteActionPerformed
 
     private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
         // TODO add your handling code here:
-             // TODO add your handling code here:
-         frmKhachHang khachHang = new frmKhachHang();
-        khachHang.setVisible(true);
+        frmKhachHang ui = new frmKhachHang();
+        ui.setVisible(true);
         setVisible(false);
     }//GEN-LAST:event_jLabel8MouseClicked
 
     private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
         // TODO add your handling code here:
-        frmHoaDon hoaDon = new frmHoaDon();
-        hoaDon.setVisible(true);
+        frmHoaDon ui = new frmHoaDon();
+        ui.setVisible(true);
         setVisible(false);
     }//GEN-LAST:event_jLabel7MouseClicked
 
     private void jLabel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseClicked
         // TODO add your handling code here:
-        frmThanhToan thanhToan = new frmThanhToan();
-        thanhToan.setVisible(true);
-        setVisible(false);
+        
     }//GEN-LAST:event_jLabel9MouseClicked
 
     /**
@@ -598,7 +609,20 @@ private List<Sach> lists;
         }
         //</editor-fold>
         //</editor-fold>
-        
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -608,7 +632,7 @@ private List<Sach> lists;
         });
     }
     SachDao sDao = new SachDao();
-     public void filltable() {
+     public void filltablesacch() {
         lists = sDao.selectAll();
         String[] headers = new String[]{"Mã Sách", "Tên Sách", "Loại sách", "Tác giả", "Số lượng", "Giá" , "Ngày xuất Bản","Mô tả", "Mã NV"};
         DefaultTableModel tbl_model = new DefaultTableModel(headers, 0);
@@ -620,11 +644,57 @@ private List<Sach> lists;
         tbl_sach.setModel(tbl_model);
 
     }
+     List<hoaDonCho> list = new ArrayList<>();
+     
+     public void showtb(int vitri) {
+        for(int i = 0; i < tbl_sach.getRowCount();i++){
+            if(vitri == i){
+            String tenSach = tbl_sach.getValueAt(i, 1).toString();
+            int loaiSach = Integer.parseInt(tbl_sach.getValueAt(i, 2).toString());
+            int soLuong = Integer.parseInt(tbl_sach.getValueAt(i, 4).toString());
+            float giaTien = Float.parseFloat(tbl_sach.getValueAt(i, 5).toString());
+            String maNV = tbl_sach.getValueAt(i, 8).toString();
+            hoaDonCho hdc = new hoaDonCho(tenSach, soLuong, loaiSach, giaTien, maNV);
+            list.add(hdc);
+            }else{
+            }
+            filltablehdcho();
+        }
+    }
+        public void filltablehdcho() {
+        String[] headers = new String[]{"Tên sản phẩm", "Số lượng", "loại sách", "Giá tiền", "Mã nhân viên"};
+        DefaultTableModel tbl_model = new DefaultTableModel(headers, 0);
+
+        for (hoaDonCho s : list) {
+            Object[] obj = { s.getTenSP(), s.getSoLuong(), s.getLoaiSach(), s.getGiaTien(), s.getMaNV()};
+            tbl_model.addRow(obj);
+        }
+        tbl_cho.setModel(tbl_model);
+    }
+        public void deleteSelectedRow() {
+    // Get the selected row index
+    int xoa = tbl_cho.getSelectedRow();
+    
+    // Check if no row is selected
+    if (xoa == -1) {
+        JOptionPane.showMessageDialog(this, "Bạn chưa chọn vị trí để xóa");
+    } else {
+        // Get the table model
+        DefaultTableModel model = (DefaultTableModel) tbl_cho.getModel();
+        
+        // Remove the selected row from the model
+        model.removeRow(xoa);
+        
+        // Refresh the table (this is usually not necessary since the table updates automatically)
+        filltablehdcho();
+    }
+}
+
+        
+    // không biết viết cái gì cả lỏ quá trời ơi
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
+    private javax.swing.JButton btnclaern;
+    private javax.swing.JButton btndelete;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;
@@ -639,6 +709,7 @@ private List<Sach> lists;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -656,10 +727,9 @@ private List<Sach> lists;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JLabel lb_doimk;
+    private javax.swing.JLabel lbtongTien;
     private javax.swing.JTable tbl_cho;
     private javax.swing.JTable tbl_sach;
     // End of variables declaration//GEN-END:variables

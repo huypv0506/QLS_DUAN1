@@ -65,7 +65,7 @@ public class NhanVienDao extends QLSDao<NhanVien, String>{
 
     @Override
     public void delete(String MANV) {
-        String sql = "DELETE * FROM NHANVIEN WHERE MANV=?";
+        String sql = "DELETE FROM NHANVIEN WHERE MANV=?";
         XJdbc.update(sql, MANV);
     }
 

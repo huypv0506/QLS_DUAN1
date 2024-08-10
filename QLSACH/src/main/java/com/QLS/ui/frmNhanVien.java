@@ -5,12 +5,16 @@
 package com.QLS.ui;
 
 import com.QLS.DAO.NhanVienDao;
+import com.QLS.entity.LoaiSach;
 import com.QLS.entity.NhanVien;
 import com.QLS.utils.Auth;
 import com.QLS.utils.MsgBox;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.List;
+import java.util.regex.Pattern;
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -29,6 +33,7 @@ public class frmNhanVien extends javax.swing.JFrame implements MouseListener {
         initComponents();
         filltable();
         updateStatus();
+        
 
     }
 
@@ -78,8 +83,8 @@ public class frmNhanVien extends javax.swing.JFrame implements MouseListener {
         cbql = new javax.swing.JRadioButton();
         jLabel16 = new javax.swing.JLabel();
         txtmk2 = new javax.swing.JPasswordField();
-        txttimkiem1 = new javax.swing.JTextField();
-        jLabel18 = new javax.swing.JLabel();
+        txttimkiem = new javax.swing.JTextField();
+        jLabel17 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -93,6 +98,7 @@ public class frmNhanVien extends javax.swing.JFrame implements MouseListener {
         jLabel1.setText("ADMIN1");
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/Bộ_Icon/user_32.png"))); // NOI18N
         jLabel2.setText("icon");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -134,6 +140,11 @@ public class frmNhanVien extends javax.swing.JFrame implements MouseListener {
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("LOẠI SÁCH");
         jLabel5.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(255, 255, 255)));
+        jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel5MouseClicked(evt);
+            }
+        });
 
         jLabel6.setBackground(new java.awt.Color(255, 255, 255));
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
@@ -148,6 +159,11 @@ public class frmNhanVien extends javax.swing.JFrame implements MouseListener {
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setText("HÓA ĐƠN");
         jLabel7.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(255, 255, 255)));
+        jLabel7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel7MouseClicked(evt);
+            }
+        });
 
         jLabel8.setBackground(new java.awt.Color(255, 255, 255));
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
@@ -155,6 +171,11 @@ public class frmNhanVien extends javax.swing.JFrame implements MouseListener {
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel8.setText("KHÁCH HÀNG");
         jLabel8.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(255, 255, 255)));
+        jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel8MouseClicked(evt);
+            }
+        });
 
         jLabel9.setBackground(new java.awt.Color(255, 255, 255));
         jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
@@ -162,6 +183,11 @@ public class frmNhanVien extends javax.swing.JFrame implements MouseListener {
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel9.setText("THANH TOÁN");
         jLabel9.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(255, 255, 255)));
+        jLabel9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel9MouseClicked(evt);
+            }
+        });
 
         lb_doimk.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
         lb_doimk.setForeground(new java.awt.Color(255, 255, 255));
@@ -217,7 +243,7 @@ public class frmNhanVien extends javax.swing.JFrame implements MouseListener {
                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
                 .addComponent(jLabel10)
                 .addGap(25, 25, 25))
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -335,7 +361,7 @@ public class frmNhanVien extends javax.swing.JFrame implements MouseListener {
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGap(26, 26, 26)
+                .addGap(17, 17, 17)
                 .addComponent(btnthem)
                 .addGap(27, 27, 27)
                 .addComponent(btnsua)
@@ -343,18 +369,18 @@ public class frmNhanVien extends javax.swing.JFrame implements MouseListener {
                 .addComponent(btnxoa)
                 .addGap(18, 18, 18)
                 .addComponent(btncapnhat)
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGap(38, 38, 38)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                .addContainerGap(41, Short.MAX_VALUE)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnthem)
                     .addComponent(btnsua)
                     .addComponent(btnxoa)
                     .addComponent(btncapnhat))
-                .addContainerGap(39, Short.MAX_VALUE))
+                .addGap(36, 36, 36))
         );
 
         buttonGroup1.add(cbnv);
@@ -364,6 +390,8 @@ public class frmNhanVien extends javax.swing.JFrame implements MouseListener {
         cbql.setText("Quản Lý");
 
         jLabel16.setText("Mật khẩu xác nhận:");
+
+        jLabel17.setText("Tìm kiếm");
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -406,6 +434,12 @@ public class frmNhanVien extends javax.swing.JFrame implements MouseListener {
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(txtmk2, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(114, 114, 114))))
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(39, 39, 39)
+                .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txttimkiem, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -436,12 +470,13 @@ public class frmNhanVien extends javax.swing.JFrame implements MouseListener {
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cbnv)
                     .addComponent(cbql))
-                .addGap(27, 27, 27)
-                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txttimkiem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel17))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
-
-        jLabel18.setText("Tìm kiếm");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -453,10 +488,7 @@ public class frmNhanVien extends javax.swing.JFrame implements MouseListener {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txttimkiem1, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jScrollPane1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
@@ -467,13 +499,8 @@ public class frmNhanVien extends javax.swing.JFrame implements MouseListener {
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel18)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txttimkiem1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 353, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -536,6 +563,10 @@ public class frmNhanVien extends javax.swing.JFrame implements MouseListener {
     private void btnthemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnthemActionPerformed
         // TODO add your handling code here:
         this.insert();
+        if (FormValidator.validateForm(txtMNV, txtname, txtpassword, txtemail)) {
+        // Tiếp tục xử lý lưu dữ liệu nếu form hợp lệ
+        System.out.println("Vui lòng kiểm tra dữ liệu nhập");
+    }
     }//GEN-LAST:event_btnthemActionPerformed
 
     private void btncapnhatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncapnhatActionPerformed
@@ -552,8 +583,37 @@ public class frmNhanVien extends javax.swing.JFrame implements MouseListener {
         // TODO add your handling code here:
         this.clearForm();
     }//GEN-LAST:event_btnsuaActionPerformed
+
+    private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
+        // TODO add your handling code here:
+        frmLoaiSach ui = new frmLoaiSach();
+        ui.setVisible(true);
+        setVisible(false);
+    }//GEN-LAST:event_jLabel5MouseClicked
+
+    private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
+        // TODO add your handling code here:
+        frmKhachHang ui = new frmKhachHang();
+        ui.setVisible(true);
+        setVisible(false);
+    }//GEN-LAST:event_jLabel8MouseClicked
+
+    private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
+        // TODO add your handling code here:
+        frmHoaDon ui = new frmHoaDon();
+        ui.setVisible(true);
+        setVisible(false);
+    }//GEN-LAST:event_jLabel7MouseClicked
+
+    private void jLabel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseClicked
+        // TODO add your handling code here:
+        frmThanhToan ui = new frmThanhToan();
+        ui.setVisible(true);
+        setVisible(false);
+    }//GEN-LAST:event_jLabel9MouseClicked
     NhanVienDao nvDao = new NhanVienDao();
     int row = -1;
+
     /**
      * @param args the command line arguments
      */
@@ -617,89 +677,98 @@ public class frmNhanVien extends javax.swing.JFrame implements MouseListener {
         }
         txtemail.setText(nv.getEMAIL());
     }
-    void update(){
+
+    void update() {
 //         NhanVien nv = nvDao.update(entity);
-         NhanVien nv = this.getform();
-         String mk2 = new String(txtmk2.getPassword());
-         if(!mk2.equals(nv.getMATKHAU())){
-             MsgBox.alert(this, "Mật khẩu không đúng!");
-         }else{
-            try{
-             nvDao.update(nv);
-             this.filltable();
-              MsgBox.alert(this, "Cập nhật thành công!");
-         }catch(Exception e){
-             e.printStackTrace();
-             MsgBox.alert(this, "Cập nhật thất bại!");
-         } 
-         }
-         
-        
-    }
-    void delete(){
-            String manv = txtMNV.getText();
-            if(manv.equals(Auth.user.getMANV())){
-                MsgBox.alert(this, "Bạn không được xóa chính bạn!");
-            }
-            else if(MsgBox.confirm(this, "Bạn thực sự muốn xóa nhân viên này?")){
-                try {
-                    nvDao.delete(manv);
-                    this.filltable();
-                    this.clearForm();
-                    MsgBox.alert(this, "Xóa thành công!");
-                } 
-                catch (Exception e) {
-                    MsgBox.alert(this, "Xóa thất bại!");
-                }
-            
-        }
-    }
-    void insert(){
-//         NhanVien nv = nvDao.update(entity);
-         NhanVien nv = this.getform();
-         String mk2 = new String(txtmk2.getPassword());
-         if(!mk2.equals(nv.getMATKHAU())){
-             MsgBox.alert(this, "Mật khẩu không đúng!");
-         }else{
-            try{
-             nvDao.insert(nv);
-             this.filltable();
-             this.clearForm();
-              MsgBox.alert(this, "Cập nhật thành công!");
-         }catch(Exception e){
-             MsgBox.alert(this, "Cập nhật thất bại!");
-         } 
-         }
-         
-        
-    }
-    void setform( NhanVien nv){
-       txtMNV.setText(nv.getMANV());
-       txtname.setText(nv.getHOTEN());
-       txtpassword.setText(nv.getMATKHAU());
-       if (nv.getVAITRO() == 0) {
-            cbnv.setSelected(true);
+        NhanVien nv = this.getform();
+        String mk2 = new String(txtmk2.getPassword());
+        if (!mk2.equals(nv.getMATKHAU())) {
+            MsgBox.alert(this, "Mật khẩu không đúng!");
         } else {
-            cbql.setSelected(true);
+            try {
+                nvDao.update(nv);
+                this.filltable();
+                MsgBox.alert(this, "Cập nhật thành công!");
+            } catch (Exception e) {
+                e.printStackTrace();
+                MsgBox.alert(this, "Cập nhật thất bại!");
+            }
         }
-       txtemail.setText(nv.getEMAIL());
+
     }
-    NhanVien getform(){
+
+    void delete() {
+        String manv = txtMNV.getText();
+        if (manv.equals(Auth.user.getMANV())) {
+            MsgBox.alert(this, "Bạn không được xóa chính bạn!");
+        } else if (MsgBox.confirm(this, "Bạn thực sự muốn xóa nhân viên này?")) {
+            try {
+                nvDao.delete(manv);
+                this.filltable();
+                this.clearForm();
+                MsgBox.alert(this, "Xóa thành công!");
+            } catch (Exception e) {
+                MsgBox.alert(this, "Xóa thất bại!");
+            }
+
+        }
+    }
+
+    void insert() {
+//         NhanVien nv = nvDao.update(entity);
+        NhanVien nv = this.getform();
+        String mk2 = new String(txtmk2.getPassword());
+        if (!mk2.equals(nv.getMATKHAU())) {
+            MsgBox.alert(this, "Mật khẩu không đúng!");
+        } else {
+            try {
+                nvDao.insert(nv);
+                this.filltable();
+                this.clearForm();
+                MsgBox.alert(this, "Cập nhật thành công!");
+            } catch (Exception e) {
+                MsgBox.alert(this, "Cập nhật thất bại!");
+            }
+        }
+
+    }
+
+    void setform(NhanVien nv) {
+        if (nv != null) {
+            txtMNV.setText(nv.getMANV());
+            txtname.setText(nv.getHOTEN());
+            txtpassword.setText(nv.getMATKHAU());
+            if (nv.getVAITRO() == 0) {
+                cbnv.setSelected(true);
+            } else {
+                cbql.setSelected(true);
+            }
+            txtemail.setText(nv.getEMAIL());
+        } else {
+            // Xử lý khi nv là null
+            MsgBox.alert(this, "các trường dữ liệu không đc trống");
+        }
+
+    }
+
+    NhanVien getform() {
         NhanVien nv = new NhanVien();
         nv.setMANV(txtMNV.getText());
         nv.setHOTEN(txtname.getText());
         nv.setMATKHAU(txtpassword.getText());
-        nv.setVAITRO(cbnv.getName()=="Nhân Viên"?0:1);
+        nv.setVAITRO(cbnv.getName() == "Nhân Viên" ? 0 : 1);
         nv.setEMAIL(txtemail.getText());
         return nv;
     }
-    void clearForm(){
+
+    void clearForm() {
         NhanVien nv = new NhanVien();
         this.setform(nv);
         this.row = -1;
         this.updateStatus();
     }
-    void updateStatus(){
+
+    void updateStatus() {
         boolean edit = (this.row >= 0);
 //        boolean first = (this.row == 0);
 //        boolean last = (this.row == tbl_nhavien.getRowCount() - 1);
@@ -708,13 +777,54 @@ public class frmNhanVien extends javax.swing.JFrame implements MouseListener {
         btnthem.setEnabled(!edit);
         btnsua.setEnabled(!edit);
         btnxoa.setEnabled(!edit);
-        
+
         // Trạng thái điều hướng
 //        btnFirst.setEnabled(edit && !first);
 //        btnPrev.setEnabled(edit && !first);
 //        btnNext.setEnabled(edit && !last);
 //        btnLast.setEnabled(edit && !last);
     }
+
+
+public class FormValidator {
+
+    // Hàm kiểm tra form trống
+    public static boolean isFormEmpty(JTextField... fields) {
+        for (JTextField field : fields) {
+            if (field.getText().trim().isEmpty()) {
+                return true; // Nếu có trường nào trống thì trả về true
+            }
+        }
+        return false; // Không có trường nào trống
+    }
+
+    // Hàm kiểm tra định dạng email
+    public static boolean isValidEmail(String email) {
+        // Regex đơn giản để kiểm tra định dạng email
+        String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";
+        Pattern pattern = Pattern.compile(emailRegex);
+        return pattern.matcher(email).matches();
+    }
+
+    // Hàm kiểm tra form
+    public static boolean validateForm(JTextField txtMNV, JTextField txtname, JTextField txtpassword, JTextField txtemail) {
+        // Kiểm tra form trống
+        if (isFormEmpty(txtMNV, txtname, txtpassword, txtemail)) {
+            JOptionPane.showMessageDialog(null, "vui lòng kiểm tra dữ liệu.", "Warning", JOptionPane.WARNING_MESSAGE);
+            return false;
+        }
+
+        // Kiểm tra định dạng email
+        if (!isValidEmail(txtemail.getText())) {
+            JOptionPane.showMessageDialog(null, "Diinhja dạng email không đúng.", "Warning", JOptionPane.WARNING_MESSAGE);
+            return false;
+        }
+
+        // Nếu tất cả đều hợp lệ
+        return true;
+    }
+}
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btncapnhat;
@@ -732,7 +842,7 @@ public class frmNhanVien extends javax.swing.JFrame implements MouseListener {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -755,7 +865,7 @@ public class frmNhanVien extends javax.swing.JFrame implements MouseListener {
     private javax.swing.JPasswordField txtmk2;
     private javax.swing.JTextField txtname;
     private javax.swing.JTextField txtpassword;
-    private javax.swing.JTextField txttimkiem1;
+    private javax.swing.JTextField txttimkiem;
     // End of variables declaration//GEN-END:variables
 
     @Override

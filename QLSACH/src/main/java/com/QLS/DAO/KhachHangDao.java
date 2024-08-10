@@ -21,32 +21,35 @@ public class KhachHangDao extends QLSDao<KhachHang, String>{
 
     @Override
     public void insert(KhachHang entity) {
-         String sql="INSERT INTO KHACHHANG (MAKH, HOTEN, SDT, EMAIL, NGAYDK) VALUES (?, ?, ?, ?, ?)";
+         String sql="INSERT INTO KHACHHANG (MAKH, HOTEN, SDT, EMAIL, NGAYDK, DIACHI) VALUES (?, ?, ?, ?, ?, ?)";
         XJdbc.update(sql,
             entity. getMAKH(),
             entity.getHOTEN(),
             entity.getSDT(),
             entity.getEMAIL(),
-            entity.getNGAYDK()
+            entity.getNGAYDK(),
+            entity.getDIACHI()
         );
     }
 
     @Override
     public void update(KhachHang entity) {
-        String sql="UPDATE KHACHHANG SET HOTEN=?, SDT=?, EMAIL=?, NGAYDK=? WHERE MAKH=?";
+        String sql="UPDATE KHACHHANG SET HOTEN=?, SDT=?, EMAIL=?, NGAYDK=?, DIACHI=? WHERE MAKH=?";
         XJdbc.update(sql,
                 entity.getHOTEN(),
                 entity.getSDT(),
                 entity.getEMAIL(),
                 entity.getNGAYDK(),
-                entity.getMAKH()
+               
+                entity.getDIACHI(),
+                 entity.getMAKH()
         );
         
     }
 
     @Override
     public void delete(String MAKH) {
-       String sql = "DELETE * FROM KHACHHANG WHERE MAKH=?";
+       String sql = "DELETE FROM KHACHHANG WHERE MAKH=?";
         XJdbc.update(sql,MAKH );
     }
 
@@ -77,6 +80,7 @@ public class KhachHangDao extends QLSDao<KhachHang, String>{
                    kh.setSDT(rs.getString("SDT"));
                    kh.setEMAIL(rs.getString("EMAIL"));
                    kh.setNGAYDK(rs.getString("NGAYDK"));
+                   kh.setDIACHI(rs.getString("DIACHI"));
                    list.add(kh);
                    
                    

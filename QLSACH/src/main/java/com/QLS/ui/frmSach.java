@@ -7,7 +7,9 @@ package com.QLS.ui;
 import com.QLS.DAO.SachDao;
 import com.QLS.entity.NhanVien;
 import com.QLS.entity.Sach;
+import com.QLS.utils.MsgBox;
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -15,7 +17,9 @@ import javax.swing.table.DefaultTableModel;
  * @author ACER
  */
 public class frmSach extends javax.swing.JFrame {
-private List<Sach> lists;
+
+    private List<Sach> lists;
+
     /**
      * Creates new form Main
      */
@@ -60,10 +64,10 @@ private List<Sach> lists;
         txt_tacgia = new javax.swing.JTextField();
         txt_gia = new javax.swing.JTextField();
         txt_ngayxuatban = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        ntnadd = new javax.swing.JButton();
+        btnsua = new javax.swing.JButton();
+        btnxoa = new javax.swing.JButton();
+        btnnew = new javax.swing.JButton();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
@@ -87,6 +91,7 @@ private List<Sach> lists;
         jLabel1.setText("ADMIN1");
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/Bộ_Icon/user_32.png"))); // NOI18N
         jLabel2.setText("icon");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -116,11 +121,6 @@ private List<Sach> lists;
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("SÁCH");
         jLabel3.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(255, 255, 255)));
-        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel3MouseClicked(evt);
-            }
-        });
 
         jLabel5.setBackground(new java.awt.Color(255, 255, 255));
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
@@ -128,11 +128,6 @@ private List<Sach> lists;
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("LOẠI SÁCH");
         jLabel5.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 1, 0, new java.awt.Color(255, 255, 255)));
-        jLabel5.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel5MouseClicked(evt);
-            }
-        });
 
         jLabel6.setBackground(new java.awt.Color(255, 255, 255));
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
@@ -288,13 +283,33 @@ private List<Sach> lists;
             }
         });
 
-        jButton1.setText("Thêm");
+        ntnadd.setText("Thêm");
+        ntnadd.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ntnaddMouseClicked(evt);
+            }
+        });
 
-        jButton2.setText("Sửa");
+        btnsua.setText("Sửa");
+        btnsua.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnsuaMouseClicked(evt);
+            }
+        });
 
-        jButton3.setText("Xóa");
+        btnxoa.setText("Xóa");
+        btnxoa.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnxoaMouseClicked(evt);
+            }
+        });
 
-        jButton4.setText("Làm mới");
+        btnnew.setText("Làm mới");
+        btnnew.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnnewMouseClicked(evt);
+            }
+        });
 
         jLabel12.setText("Bảng sách:");
 
@@ -348,13 +363,13 @@ private List<Sach> lists;
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jButton1)
+                                .addComponent(ntnadd)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton2)
+                                .addComponent(btnsua)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton3)
+                                .addComponent(btnxoa)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton4))
+                                .addComponent(btnnew))
                             .addComponent(jLabel13)
                             .addComponent(jLabel14)
                             .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -421,10 +436,10 @@ private List<Sach> lists;
                         .addComponent(txt_manv, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton1)
-                            .addComponent(jButton2)
-                            .addComponent(jButton3)
-                            .addComponent(jButton4)))
+                            .addComponent(ntnadd)
+                            .addComponent(btnsua)
+                            .addComponent(btnxoa)
+                            .addComponent(btnnew)))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 7, Short.MAX_VALUE))
         );
@@ -461,8 +476,8 @@ private List<Sach> lists;
     private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
         // TODO add your handling code here:
         frmNhanVien nv = new frmNhanVien();
-                nv.setVisible(true);
-                setVisible(false);
+        nv.setVisible(true);
+        setVisible(false);
     }//GEN-LAST:event_jLabel6MouseClicked
 
     private void txt_giaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_giaActionPerformed
@@ -475,43 +490,43 @@ private List<Sach> lists;
         this.showtb(i);
     }//GEN-LAST:event_tbl_sachMouseClicked
 
-    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
+    private void btnxoaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnxoaMouseClicked
         // TODO add your handling code here:
-        // TODO add your handling code here:
-        frmSach sach = new frmSach();
-        sach.setVisible(true);
-        setVisible(false);
-    }//GEN-LAST:event_jLabel3MouseClicked
+        this.delete();
+    }//GEN-LAST:event_btnxoaMouseClicked
 
-    private void jLabel5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel5MouseClicked
+    private void btnnewMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnnewMouseClicked
         // TODO add your handling code here:
+        this.clearForm();
+    }//GEN-LAST:event_btnnewMouseClicked
+
+    private void ntnaddMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ntnaddMouseClicked
         // TODO add your handling code here:
-        frmSach sach = new frmSach();
-        sach.setVisible(true);
-        setVisible(false);
-    }//GEN-LAST:event_jLabel5MouseClicked
+        this.insert();
+    }//GEN-LAST:event_ntnaddMouseClicked
+
+    private void btnsuaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnsuaMouseClicked
+        this.update();       // TODO add your handling code here:
+    }//GEN-LAST:event_btnsuaMouseClicked
 
     private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
         // TODO add your handling code here:
-           // TODO add your handling code here:
-        frmKhachHang khachHang = new frmKhachHang();
-        khachHang.setVisible(true);
+        frmKhachHang ui = new frmKhachHang();
+        ui.setVisible(true);
         setVisible(false);
     }//GEN-LAST:event_jLabel8MouseClicked
 
     private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
         // TODO add your handling code here:
-           // TODO add your handling code here:
-        frmHoaDon hoaDon = new frmHoaDon();
-        hoaDon.setVisible(true);
+        frmHoaDon ui = new frmHoaDon();
+        ui.setVisible(true);
         setVisible(false);
     }//GEN-LAST:event_jLabel7MouseClicked
 
     private void jLabel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseClicked
         // TODO add your handling code here:
-         // TODO add your handling code here
-        frmThanhToan thanhToan = new frmThanhToan();
-        thanhToan.setVisible(true);
+        frmThanhToan ui = new frmThanhToan();
+        ui.setVisible(true);
         setVisible(false);
     }//GEN-LAST:event_jLabel9MouseClicked
 
@@ -554,37 +569,113 @@ private List<Sach> lists;
     }
     SachDao sDao = new SachDao();
     int row = -1;
- public void filltable() {
+
+    public void filltable() {
         lists = sDao.selectAll();
-        String[] headers = new String[]{"Mã Sách", "Tên Sách", "Loại sách", "Tác giả", "Số lượng", "Giá" , "Ngày xuất Bản","Mô tả", "Mã NV"};
+        String[] headers = new String[]{"Mã Sách", "Tên Sách", "Loại sách", "Tác giả", "Số lượng", "Giá", "Ngày xuất Bản", "Mô tả", "Mã NV"};
         DefaultTableModel tbl_model = new DefaultTableModel(headers, 0);
 
         for (Sach s : lists) {
-            Object[] obj = { s.getMASACH(), s.getTENSACH(), s.getLOAISACH(), s.getTACGIA(), s.getSOLUONG(), s.getGIA(), s.getNGAYXUATBAN(), s.getMOTA() , s.getMANV()};
+            Object[] obj = {s.getMASACH(), s.getTENSACH(), s.getLOAISACH(), s.getTACGIA(), s.getSOLUONG(), s.getGIA(), s.getNGAYXUATBAN(), s.getMOTA(), s.getMANV()};
             tbl_model.addRow(obj);
         }
         tbl_sach.setModel(tbl_model);
 
     }
- public void showtb(int i) {
+
+    public void showtb(int i) {
         Sach s = lists.get(i);
         txt_masach.setText(s.getMASACH());
         txt_tensach.setText(s.getTENSACH());
-        txt_loaisach.setText(s.getLOAISACH()+"");
+        txt_loaisach.setText(s.getLOAISACH() + "");
         txt_tacgia.setText(s.getTACGIA());
-        txt_soluong.setText(s.getSOLUONG()+"");
-        txt_gia.setText(s.getGIA()+"");
+        txt_soluong.setText(s.getSOLUONG() + "");
+        txt_gia.setText(s.getGIA() + "");
         txt_ngayxuatban.setText(s.getNGAYXUATBAN());
         txt_mota.setText(s.getMOTA());
         txt_manv.setText(s.getMANV());
-        
+
+    }
+
+    Sach getform() {
+        Sach s = new Sach();
+        s.setMASACH(txt_masach.getText());
+        s.setTENSACH(txt_tensach.getText());
+        s.setLOAISACH(Integer.parseInt(txt_loaisach.getText()));
+        s.setTACGIA(txt_tacgia.getText());
+        s.setSOLUONG(Integer.parseInt(txt_soluong.getText()));
+        s.setGIA(Float.parseFloat(txt_gia.getText()));
+        s.setNGAYXUATBAN(txt_ngayxuatban.getText());
+        s.setMOTA(txt_mota.getText());
+        s.setMANV(txt_manv.getText());
+        return s;
+    }
+
+    void setform(Sach s) {
+
+        txt_masach.setText(s.getMASACH());
+        txt_tensach.setText(s.getTENSACH());
+        txt_loaisach.setText(s.getLOAISACH() + "");
+        txt_tacgia.setText(s.getTACGIA());
+        txt_soluong.setText(s.getSOLUONG() + "");
+        txt_gia.setText(s.getGIA() + "");
+        txt_ngayxuatban.setText(s.getNGAYXUATBAN());
+        txt_mota.setText(s.getMOTA());
+        txt_manv.setText(s.getMANV());
+    }
+
+    void clearForm() {
+        Sach s = new Sach();
+        this.setform(s);
+        this.row = -1;
+    }
+
+    void delete() {
+        String masach = txt_masach.getText();
+        try {
+            sDao.delete(masach);
+            this.filltable();
+            this.clearForm();
+            MsgBox.alert(this, "Xóa thành công!");
+        } catch (Exception e) {
+            MsgBox.alert(this, "Xóa thất bại!");
+        }
+
+    }
+
+    void insert() {
+        Sach s = getform();
+        if(s.getMASACH().isEmpty()){
+            JOptionPane.showMessageDialog(this, "Mã sách không được bỏ trống");
+        }else{
+            sDao.insert(s);
+            this.filltable();
+            this.clearForm();
+            JOptionPane.showMessageDialog(this, "thêm Sách thành công");
+        }
         
     }
+
+    void update() {
+//         NhanVien nv = nvDao.update(entity);
+
+        Sach s = this.getform(); // Get the form data and create a Sach object
+        try {
+            sDao.update(s);      // Attempt to insert the Sach object into the database
+            this.filltable();    // Refresh the table to show the new data
+            this.clearForm();    // Clear the form after successful insertion
+            MsgBox.alert(this, "Cập nhật thành công!"); // Show success message
+        } catch (Exception e) {
+            MsgBox.alert(this, "Cập nhật thất bại!");  // Show failure message
+        }
+
+    }
+
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
+    private javax.swing.JButton btnnew;
+    private javax.swing.JButton btnsua;
+    private javax.swing.JButton btnxoa;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -612,6 +703,7 @@ private List<Sach> lists;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lb_doimk;
+    private javax.swing.JButton ntnadd;
     private javax.swing.JTable tbl_sach;
     private javax.swing.JTextField txt_gia;
     private javax.swing.JTextField txt_loaisach;
