@@ -15,14 +15,14 @@ public class Sach {
     private String TACGIA;
     private int SOLUONG;
     private float GIA;
-    private int NGAYXUATBAN;
+    private String NGAYXUATBAN;
     private String MOTA;
     private String MANV;
 
     public Sach() {
     }
 
-    public Sach(String MASACH, String TENSACH, int LOAISACH, String TACGIA, int SOLUONG, float GIA, int NGAYXUATBAN, String MOTA, String MANV) {
+    public Sach(String MASACH, String TENSACH, int LOAISACH, String TACGIA, int SOLUONG, float GIA, String NGAYXUATBAN, String MOTA, String MANV) {
         this.MASACH = MASACH;
         this.TENSACH = TENSACH;
         this.LOAISACH = LOAISACH;
@@ -82,11 +82,11 @@ public class Sach {
         this.GIA = GIA;
     }
 
-    public int getNGAYXUATBAN() {
+    public String getNGAYXUATBAN() {
         return NGAYXUATBAN;
     }
 
-    public void setNGAYXUATBAN(int NGAYXUATBAN) {
+    public void setNGAYXUATBAN(String NGAYXUATBAN) {
         this.NGAYXUATBAN = NGAYXUATBAN;
     }
 

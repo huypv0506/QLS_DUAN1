@@ -14,16 +14,26 @@ public class KhachHang {
     private String SDT;
     private String EMAIL;
     private String NGAYDK;
+    private  String DIACHI;
+
+    public String getDIACHI() {
+        return DIACHI;
+    }
+
+    public void setDIACHI(String DIACHI) {
+        this.DIACHI = DIACHI;
+    }
 
     public KhachHang() {
     }
 
-    public KhachHang(int MAKH, String HOTEN, String SDT, String EMAIL, String NGAYDK) {
+    public KhachHang(int MAKH, String HOTEN, String SDT, String EMAIL, String NGAYDK, String DIACHI) {
         this.MAKH = MAKH;
         this.HOTEN = HOTEN;
         this.SDT = SDT;
         this.EMAIL = EMAIL;
         this.NGAYDK = NGAYDK;
+        this.DIACHI = DIACHI;
     }
 
     public int getMAKH() {

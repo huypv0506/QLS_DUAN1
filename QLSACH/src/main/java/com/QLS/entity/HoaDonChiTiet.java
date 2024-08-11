@@ -12,6 +12,7 @@ public class HoaDonChiTiet {
     private int MAHD;
     private String MASACH;
     private int SOLUONG;
+    private float TONGTIEN;
 
     public HoaDonChiTiet() {
     }
@@ -20,6 +21,7 @@ public class HoaDonChiTiet {
         this.MAHD = MAHD;
         this.MASACH = MASACH;
         this.SOLUONG = SOLUONG;
+        this.TONGTIEN= TONGTIEN;
     }
 
     public int getMAHD() {
@@ -44,6 +46,14 @@ public class HoaDonChiTiet {
 
     public void setSOLUONG(int SOLUONG) {
         this.SOLUONG = SOLUONG;
+    }
+
+    public float getTONGTIEN() {
+        return TONGTIEN;
+    }
+
+    public void setTONGTIEN(float TONGTIEN) {
+        this.TONGTIEN = TONGTIEN;
     }
     
 }
