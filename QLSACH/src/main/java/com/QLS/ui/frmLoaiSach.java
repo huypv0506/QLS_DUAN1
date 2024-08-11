@@ -7,7 +7,7 @@ package com.QLS.ui;
 import com.QLS.DAO.LoaiSachDao;
 
 import com.QLS.entity.LoaiSach;
-import com.QLS.entity.Sach;
+
 
 
 import com.QLS.utils.MsgBox;
@@ -455,9 +455,9 @@ private List<LoaiSach> listls;
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(35, 35, 35)
+                        .addGap(49, 49, 49)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(44, 44, 44)
+                        .addGap(30, 30, 30)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addComponent(txt_tenlsach, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -702,19 +702,19 @@ private List<LoaiSach> listls;
     }
 
     public void showtb(int i) {
-        LoaiSach LS = listls.get(i);
-        txt_malsach.setText(String.valueOf(LS.getMALOAI()));
-        txt_tenlsach.setText(LS.getTENLOAI());
+        LoaiSach ls = listls.get(i);
+        txt_malsach.setText(String.valueOf(ls.getMALOAI()));
+        txt_tenlsach.setText(ls.getTENLOAI());
         
         
     }
 
     void update() {
 //         NhanVien nv = nvDao.update(entity);
-        LoaiSach LS = this.getform();
+        LoaiSach ls = this.getform();
         
             try {
-                lsDao.update(LS);
+                lsDao.update(ls);
                 this.filltable();
                 MsgBox.alert(this, "Cập nhật thành công!");
             } catch (Exception e) {
@@ -740,11 +740,11 @@ private List<LoaiSach> listls;
     }
 
     void insert() {
-        LoaiSach LS = getform(); // Lấy thông tin từ form
-    if(LS.getMALOAI() == 0){  // Kiểm tra nếu MALOAI là số và có giá trị không hợp lệ
+        LoaiSach ls = getform(); // Lấy thông tin từ form
+    if(ls.getMALOAI() == 0){  // Kiểm tra nếu MALOAI là số và có giá trị không hợp lệ
        MsgBox.alert(this, "Mã sách không được bỏ trống hoặc bằng 0");
     } else {
-        lsDao.insert(LS);  // Thêm đối tượng LoaiSach vào database
+        lsDao.insert(ls);  // Thêm đối tượng LoaiSach vào database
         this.filltable();  // Cập nhật bảng sau khi thêm mới
         this.clearForm();  // Xóa các trường trên form sau khi thêm thành công
         MsgBox.alert(this, "Thêm sách thành công");
@@ -753,24 +753,24 @@ private List<LoaiSach> listls;
 
     
 
-    void setform(LoaiSach LS) {
-        txt_malsach.setText(LS.getMALOAI() + "");
-        txt_tenlsach.setText(LS.getTENLOAI());
+    void setform(LoaiSach ls) {
+        txt_malsach.setText(ls.getMALOAI() + "");
+        txt_tenlsach.setText(ls.getTENLOAI());
         
     }
 
     LoaiSach getform() {
-        LoaiSach LS = new LoaiSach();
-        LS.setMALOAI(Integer.parseInt(txt_malsach.getText()));
-        LS.setTENLOAI(txt_tenlsach.getText());
+        LoaiSach ls = new LoaiSach();
+        ls.setMALOAI(Integer.parseInt(txt_malsach.getText()));
+        ls.setTENLOAI(txt_tenlsach.getText());
         
-        return LS;
+        return ls;
     }
 
     void clearForm() {
-        LoaiSach LS = new LoaiSach();
+        LoaiSach ls = new LoaiSach();
         
-        this.setform(LS);
+        this.setform(ls);
         this.row = -1;
     }
 
