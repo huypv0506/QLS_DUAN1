@@ -702,19 +702,19 @@ private List<LoaiSach> listls;
     }
 
     public void showtb(int i) {
-        LoaiSach ls = listls.get(i);
-        txt_malsach.setText(String.valueOf(ls.getMALOAI()));
-        txt_tenlsach.setText(ls.getTENLOAI());
+        LoaiSach LS = listls.get(i);
+        txt_malsach.setText(String.valueOf(LS.getMALOAI()));
+        txt_tenlsach.setText(LS.getTENLOAI());
         
         
     }
 
     void update() {
 //         NhanVien nv = nvDao.update(entity);
-        LoaiSach ls = this.getform();
+        LoaiSach LS = this.getform();
         
             try {
-                lsDao.update(ls);
+                lsDao.update(LS);
                 this.filltable();
                 MsgBox.alert(this, "Cập nhật thành công!");
             } catch (Exception e) {
@@ -740,11 +740,11 @@ private List<LoaiSach> listls;
     }
 
     void insert() {
-        LoaiSach ls = getform(); // Lấy thông tin từ form
-    if(ls.getMALOAI() == 0){  // Kiểm tra nếu MALOAI là số và có giá trị không hợp lệ
+        LoaiSach LS = getform(); // Lấy thông tin từ form
+    if(LS.getMALOAI() == 0){  // Kiểm tra nếu MALOAI là số và có giá trị không hợp lệ
        MsgBox.alert(this, "Mã sách không được bỏ trống hoặc bằng 0");
     } else {
-        lsDao.insert(ls);  // Thêm đối tượng LoaiSach vào database
+        lsDao.insert(LS);  // Thêm đối tượng LoaiSach vào database
         this.filltable();  // Cập nhật bảng sau khi thêm mới
         this.clearForm();  // Xóa các trường trên form sau khi thêm thành công
         MsgBox.alert(this, "Thêm sách thành công");
@@ -753,24 +753,24 @@ private List<LoaiSach> listls;
 
     
 
-    void setform(LoaiSach ls) {
-        txt_malsach.setText(ls.getMALOAI() + "");
-        txt_tenlsach.setText(ls.getTENLOAI());
+    void setform(LoaiSach LS) {
+        txt_malsach.setText(LS.getMALOAI() + "");
+        txt_tenlsach.setText(LS.getTENLOAI());
         
     }
 
     LoaiSach getform() {
-        LoaiSach ls = new LoaiSach();
-        ls.setMALOAI(Integer.parseInt(txt_malsach.getText()));
-        ls.setTENLOAI(txt_tenlsach.getText());
+        LoaiSach LS = new LoaiSach();
+        LS.setMALOAI(Integer.parseInt(txt_malsach.getText()));
+        LS.setTENLOAI(txt_tenlsach.getText());
         
-        return ls;
+        return LS;
     }
 
     void clearForm() {
-        LoaiSach ls = new LoaiSach();
+        LoaiSach LS = new LoaiSach();
         
-        this.setform(ls);
+        this.setform(LS);
         this.row = -1;
     }
 
