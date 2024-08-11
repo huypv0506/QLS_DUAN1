@@ -46,6 +46,7 @@ com\QLS\ui\frmThanhToan$12.class
 com\QLS\ui\frmHoaDon$4.class
 com\QLS\ui\Main$8.class
 com\QLS\ui\toanhoc.class
+com\QLS\ui\Main$10.class
 com\QLS\ui\frmThanhToan$8.class
 com\QLS\utils\Auth.class
 com\QLS\ui\KhoaHoc$1.class
@@ -162,6 +163,7 @@ com\QLS\ui\frmKhachHang$2.class
 com\QLS\ui\frmLoaiSach.class
 com\QLS\ui\frmDangNhap.class
 com\QLS\ui\frmSach.class
+com\QLS\ui\frmNhanVien$17.class
 com\QLS\entity\LoaiSach.class
 com\QLS\ui\frmDangNhap$4.class
 com\QLS\ui\frmHoaDon$10.class

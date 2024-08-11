@@ -319,9 +319,9 @@ private List<Sach> lists;
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane3)
-                .addContainerGap())
+                .addGap(53, 53, 53)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 359, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -621,7 +621,7 @@ int xoa;
     void tinhTien(){
         float tienKhach = Float.parseFloat(txt_tienkhachdua.getText());
         float tongtien = Float.parseFloat(lbtongTien.getText());
-        float tienThua = tongtien - tienKhach;
+        float tienThua = tienKhach-tongtien  ;
         lbtienThua.setText(tienThua+"");
         JOptionPane.showMessageDialog(this, "Bạn đã thanh toán "+tongtien +" Tiền thừa của bạn là:"+tienThua);
     }
@@ -767,7 +767,7 @@ int xoa;
             bill.setText(bill.getText() + "====================================\n");
             bill.setText(bill.getText() +"                     Cảm ơn quý khách...!"+"\n");
             bill.setText(bill.getText() + "----------------------------------------------------------------\n");
-            bill.setText(bill.getText() +"                     Software by Techinbox"+"\n");
+            bill.setText(bill.getText() +"                     Mong sớm gập lại quý khách"+"\n");
             
             
             bill.print();
@@ -778,6 +778,7 @@ int xoa;
         }
  
  }
+        
         
     // không biết viết cái gì cả lỏ quá trời ơi
     // Variables declaration - do not modify//GEN-BEGIN:variables

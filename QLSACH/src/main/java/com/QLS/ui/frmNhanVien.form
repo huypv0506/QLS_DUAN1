@@ -551,6 +551,9 @@
           </Layout>
           <SubComponents>
             <Component class="javax.swing.JTextField" name="txtMNV">
+              <Properties>
+                <Property name="name" type="java.lang.String" value="" noResource="true"/>
+              </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel11">
               <Properties>
@@ -702,6 +705,9 @@
             <Component class="javax.swing.JPasswordField" name="txtmk2">
             </Component>
             <Component class="javax.swing.JTextField" name="txttimkiem">
+              <Events>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txttimkiemKeyReleased"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel17">
               <Properties>

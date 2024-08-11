@@ -5,7 +5,10 @@
 package com.QLS.ui;
 
 import com.QLS.entity.KhachHang;
+import com.QLS.entity.NhanVien;
 import com.QLS.utils.Auth;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -37,7 +40,7 @@ public class Main extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        lb_admin = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -58,10 +61,16 @@ public class Main extends javax.swing.JFrame {
 
         jPanel3.setBackground(new java.awt.Color(204, 204, 204));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
-        jLabel1.setText("ADMIN1");
+        lb_admin.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
+        lb_admin.setText("ADMIN1");
+        lb_admin.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                lb_adminKeyTyped(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/Bộ_Icon/user_32.png"))); // NOI18N
         jLabel2.setText("icon");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -72,7 +81,7 @@ public class Main extends javax.swing.JFrame {
                 .addContainerGap(68, Short.MAX_VALUE)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel1)
+                .addComponent(lb_admin)
                 .addGap(68, 68, 68))
         );
         jPanel3Layout.setVerticalGroup(
@@ -80,7 +89,7 @@ public class Main extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(27, 27, 27)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
+                    .addComponent(lb_admin)
                     .addComponent(jLabel2))
                 .addContainerGap(29, Short.MAX_VALUE))
         );
@@ -328,6 +337,11 @@ public class Main extends javax.swing.JFrame {
         setVisible(false);
     }//GEN-LAST:event_jLabel5MouseClicked
 
+    private void lb_adminKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_lb_adminKeyTyped
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_lb_adminKeyTyped
+
     /**
      * @param args the command line arguments
      */
@@ -362,9 +376,12 @@ public class Main extends javax.swing.JFrame {
             }
         });
     }
-
+    List<NhanVien> list = new ArrayList<>();
+     void  admin(int i){
+          NhanVien nv = list.get(i);
+        lb_admin.setText(nv.getHOTEN());
+     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
@@ -379,5 +396,6 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JLabel lb_admin;
     // End of variables declaration//GEN-END:variables
 }

@@ -24,13 +24,14 @@ import javax.swing.table.DefaultTableModel;
 public class frmNhanVien extends javax.swing.JFrame implements MouseListener {
 
     private List<NhanVien> listnv;
-//    private int index = -1;
+    private int index = -1;
 
     /**
      * Creates new form Main
      */
     public frmNhanVien() {
         initComponents();
+//        filltimkim("NV001");
         filltable();
         updateStatus();
         
@@ -295,6 +296,8 @@ public class frmNhanVien extends javax.swing.JFrame implements MouseListener {
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
 
+        txtMNV.setName(""); // NOI18N
+
         jLabel11.setText("Mã nhân viên:");
 
         jLabel12.setText("Mật khẩu:");
@@ -390,6 +393,12 @@ public class frmNhanVien extends javax.swing.JFrame implements MouseListener {
         cbql.setText("Quản Lý");
 
         jLabel16.setText("Mật khẩu xác nhận:");
+
+        txttimkiem.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txttimkiemKeyReleased(evt);
+            }
+        });
 
         jLabel17.setText("Tìm kiếm");
 
@@ -562,11 +571,13 @@ public class frmNhanVien extends javax.swing.JFrame implements MouseListener {
 
     private void btnthemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnthemActionPerformed
         // TODO add your handling code here:
-        this.insert();
+        
         if (FormValidator.validateForm(txtMNV, txtname, txtpassword, txtemail)) {
         // Tiếp tục xử lý lưu dữ liệu nếu form hợp lệ
         System.out.println("Vui lòng kiểm tra dữ liệu nhập");
-    }
+    } else{
+            this.insert();
+        }
     }//GEN-LAST:event_btnthemActionPerformed
 
     private void btncapnhatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncapnhatActionPerformed
@@ -611,6 +622,20 @@ public class frmNhanVien extends javax.swing.JFrame implements MouseListener {
         ui.setVisible(true);
         setVisible(false);
     }//GEN-LAST:event_jLabel9MouseClicked
+
+    private void txttimkiemKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txttimkiemKeyReleased
+        // TODO add your handling code here:
+        // tim theo manv
+        //tim theo ten
+        if(txttimkiem.getText().isEmpty()){
+            listnv.clear();
+            filltable();
+        } else {
+            listnv.clear();
+            this.filltimkimTen(txttimkiem.getText());
+        }
+        
+    }//GEN-LAST:event_txttimkiemKeyReleased
     NhanVienDao nvDao = new NhanVienDao();
     int row = -1;
 
@@ -654,6 +679,19 @@ public class frmNhanVien extends javax.swing.JFrame implements MouseListener {
 
     public void filltable() {
         listnv = nvDao.selectAll();
+        String[] headers = new String[]{"Mã NV", "Họ Và Tên", "Mật Khẩu", "Vai Trò", "EMAIL"};
+        DefaultTableModel tbl_model = new DefaultTableModel(headers, 0);
+
+        for (NhanVien nv : listnv) {
+            Object[] obj = {nv.getMANV(), nv.getHOTEN(), nv.getMATKHAU(), nv.getVAITRO(), nv.getEMAIL()};
+            tbl_model.addRow(obj);
+        }
+        tbl_nhavien.setModel(tbl_model);
+
+    }
+   
+   public void filltimkimTen(String ten) {
+        listnv = nvDao.selectByIdTen(ten);
         String[] headers = new String[]{"Mã NV", "Họ Và Tên", "Mật Khẩu", "Vai Trò", "EMAIL"};
         DefaultTableModel tbl_model = new DefaultTableModel(headers, 0);
 
@@ -722,10 +760,15 @@ public class frmNhanVien extends javax.swing.JFrame implements MouseListener {
             MsgBox.alert(this, "Mật khẩu không đúng!");
         } else {
             try {
-                nvDao.insert(nv);
+                if(nv.getMANV().equals("+\"\\n\"")){
+                    JOptionPane.showMessageDialog(this, " Mã Nhân viên không để trống");
+                }else{
+                    nvDao.insert(nv);
                 this.filltable();
                 this.clearForm();
                 MsgBox.alert(this, "Cập nhật thành công!");
+                }
+                
             } catch (Exception e) {
                 MsgBox.alert(this, "Cập nhật thất bại!");
             }
